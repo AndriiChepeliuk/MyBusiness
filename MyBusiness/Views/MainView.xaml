@@ -25,8 +25,9 @@
         <Border.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
                 <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
-                <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.75"/>
-                <GradientStop Color="{StaticResource primaryBackColor3}" Offset="1"/>
+                <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.33"/>
+                <GradientStop Color="{StaticResource primaryBackColor3}" Offset="0.66"/>
+                <GradientStop Color="{StaticResource primaryBackColor4}" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
     </Border>

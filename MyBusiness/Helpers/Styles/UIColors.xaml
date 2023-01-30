@@ -2,9 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--Background Colors-->
-    <Color x:Key="primaryBackColor1">#5C5C5C</Color>
-    <Color x:Key="primaryBackColor2">#404040</Color>
-    <Color x:Key="primaryBackColor3">#2B2B2B</Color>
+    <Color x:Key="primaryBackColor1">#414141</Color>
+    <Color x:Key="primaryBackColor2">#373737</Color>
+    <Color x:Key="primaryBackColor3">#2D2D2D</Color>
+    <Color x:Key="primaryBackColor4">#232323</Color>
 
     <!--Window Border Colors-->
     <Color x:Key="winBorderColor1">#000000</Color>
