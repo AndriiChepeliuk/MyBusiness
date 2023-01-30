@@ -6,8 +6,28 @@
         xmlns:local="clr-namespace:MyBusiness.Views"
         mc:Ignorable="d"
         Title="MainView" Height="700" Width="1300"
-        WindowStartupLocation="CenterScreen">
-    <Grid>
-        
-    </Grid>
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+
+    <Border CornerRadius="10"
+            BorderThickness="2">
+
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0"/>
+                <GradientStop Color="{StaticResource winBorderColor1}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                <GradientStop Color="{StaticResource primaryBackColor2}" Offset="0.75"/>
+                <GradientStop Color="{StaticResource primaryBackColor3}" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+    </Border>
 </Window>
