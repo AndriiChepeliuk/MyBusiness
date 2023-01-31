@@ -40,6 +40,28 @@
                         <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
+
+                <StackPanel>
+                    
+                    <!--Logo-->
+                    <StackPanel Orientation="Horizontal"
+                                Height="35"
+                                Margin="15,25,0,40">
+
+                        <Image Source="/Images/ambrella-logo.png"/>
+
+                        <TextBlock Text="UMBRELLA biz."
+                                   Foreground="{StaticResource plainTextColor1}"
+                                   FontSize="20"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,10,0"/>
+
+                    </StackPanel>
+                    
+                </StackPanel>
+                
             </Border>
 
             <!--Content section-->
