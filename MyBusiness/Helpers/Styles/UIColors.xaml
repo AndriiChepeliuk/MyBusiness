@@ -17,9 +17,21 @@
     <!--Panel Colors-->
     <SolidColorBrush x:Key="panelColor" Color="#E30528"/>
     <SolidColorBrush x:Key="panelOverColor" Color="#E30528"/>
-    <SolidColorBrush x:Key="panelActiveColor" Color="#E30528"/>
+    <SolidColorBrush x:Key="panelActiveColor" Color="#202020"/>
 
     <!--Font Colors-->
     <SolidColorBrush x:Key="plainTextColor1" Color="#969696"/>
+
+    <!--Color Palette-->
+    <SolidColorBrush x:Key="color1" Color="#E285DE"/>
+    <SolidColorBrush x:Key="color2" Color="#784DFD"/>
+    <SolidColorBrush x:Key="color3" Color="#4ADAEC"/>
+    <SolidColorBrush x:Key="color4" Color="#FB539B"/>
+    <SolidColorBrush x:Key="color5" Color="#7E82FC"/>
+    <SolidColorBrush x:Key="color6" Color="#FFC047"/>
+    <SolidColorBrush x:Key="color7" Color="#EF6C96"/>
+    <SolidColorBrush x:Key="color8" Color="#78A3FC"/>
+    <SolidColorBrush x:Key="color9" Color="#07F3C0"/>
+    <SolidColorBrush x:Key="color10" Color="#FBA1AA"/>
 
 </ResourceDictionary>
