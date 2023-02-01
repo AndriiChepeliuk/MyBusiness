@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:MyBusiness"
              StartupUri="/Views/MainView.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Helpers/Styles/UIColors.xaml"/>
+                <ResourceDictionary Source="/Helpers/Styles/ButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
