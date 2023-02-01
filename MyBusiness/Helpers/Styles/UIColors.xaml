@@ -16,10 +16,11 @@
 
     <!--Panel Colors-->
     <SolidColorBrush x:Key="panelColor" Color="#E30528"/>
-    <SolidColorBrush x:Key="panelOverColor" Color="#E30528"/>
+    <SolidColorBrush x:Key="panelOverColor" Color="#545454"/>
     <SolidColorBrush x:Key="panelActiveColor" Color="#202020"/>
 
     <!--Font Colors-->
+    <SolidColorBrush x:Key="titleColor1" Color="#C8C8C8"/>
     <SolidColorBrush x:Key="plainTextColor1" Color="#969696"/>
 
     <!--Color Palette-->
