@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\AllProducts.jpg" />
     <None Remove="Images\ambrella-logo.png" />
+    <None Remove="Images\CreateCart.jpg" />
+    <None Remove="Images\Supplies.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +23,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\AllProducts.jpg" />
     <Resource Include="Images\ambrella-logo.png" />
+    <Resource Include="Images\CreateCart.jpg" />
+    <Resource Include="Images\Supplies.jpg" />
   </ItemGroup>
 
 </Project>

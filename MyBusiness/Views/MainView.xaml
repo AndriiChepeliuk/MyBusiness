@@ -18,6 +18,22 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        
+        <DataTemplate DataType="{x:Type viewModel:AllProductsViewModel}">
+            <local:AllProductsView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:CreateCartViewModel}">
+            <local:CreateCartView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:SuppliesViewModel}">
+            <local:SuppliesView/>
+        </DataTemplate>
+        
+    </Window.Resources>
+
     <Border CornerRadius="10"
             BorderThickness="2">
 
@@ -90,7 +106,7 @@
                         
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color3}"
-                                     Command="{Binding ShowSuppliesCommand}">
+                                     Command="{Binding ShowSuppliesViewCommand}">
 
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CubesStacked" Style="{StaticResource menuButtonIcon}"/>
@@ -226,9 +242,13 @@
                                        VerticalAlignment="Center"/>
                         </StackPanel>
                         
-                        
                     </Grid>
 
+                    <!--Content section / Child views-->
+                    <ContentControl Content="{Binding CurrentChildView}"
+                                    Grid.Row="2"
+                                    Margin="25"/>
+                    
                 </Grid>
                 
             </Border>

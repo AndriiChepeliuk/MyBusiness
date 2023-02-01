@@ -48,35 +48,35 @@ namespace MyBusiness.ViewModels
 
         public ICommand ShowAllProductsViewCommand { get; }
         public ICommand ShowCreateCartViewCommand { get; }
-        public ICommand ShowSuppliesCommand { get; }
+        public ICommand ShowSuppliesViewCommand { get; }
 
         public MainViewModel()
         {
             //--> Initialize commands
             ShowAllProductsViewCommand = new ViewModelCommand(ExecuteShowAllProductsViewCommand);
             ShowCreateCartViewCommand = new ViewModelCommand(ExecuteShowCreateCartViewCommand);
-            ShowSuppliesCommand = new ViewModelCommand(ExecuteShowSuppliesCommand);
+            ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
 
             //--> Default view
             ExecuteShowAllProductsViewCommand(null);
         }
 
-        private void ExecuteShowSuppliesCommand(object obj)
+        private void ExecuteShowSuppliesViewCommand(object obj)
         {
-            //CurrentChildView = new CustomerViewModel();
+            CurrentChildView = new SuppliesViewModel();
             Caption = "Supplies";
             Icon = IconChar.CubesStacked;
         }
         private void ExecuteShowCreateCartViewCommand(object obj)
         {
-            //CurrentChildView = new CustomerViewModel();
+            CurrentChildView = new CreateCartViewModel();
             Caption = "Create cart";
             Icon = IconChar.CartShopping;
         }
 
         private void ExecuteShowAllProductsViewCommand(object obj)
         {
-            //CurrentChildView = new HomeViewModel();
+            CurrentChildView = new AllProductsViewModel();
             Caption = "All products";
             Icon = IconChar.ListCheck;
         }
