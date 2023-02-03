@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using MyBusiness.Models.ProdImage;
 
 namespace MyBusiness.Models.Product
 {
@@ -7,7 +8,10 @@ namespace MyBusiness.Models.Product
     {
         public void Configure(EntityTypeBuilder<ProductModel> builder)
         {
-            builder.Property(p => p.Name).IsRequired();
+            builder
+                .HasMany(p => p.ProdImages)
+                .WithOne(p => p.Product)
+                .HasForeignKey(p => p.ProductId);
         }
     }
 }

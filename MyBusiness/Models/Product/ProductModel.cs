@@ -1,4 +1,7 @@
-﻿namespace MyBusiness.Models.Product
+﻿using MyBusiness.Models.ProdImage;
+using System.Collections.Generic;
+
+namespace MyBusiness.Models.Product
 {
     public class ProductModel : ModelBase
     {
@@ -44,5 +47,6 @@
                 OnPropertyChanged(nameof(Price));
             }
         }
+        public ICollection<ProdImageModel> ProdImages { get; set; }
     }
 }
