@@ -7,6 +7,6 @@ namespace MyBusiness.Models.ProdImage
         public int Id { get; set; }
         public int ProductId { get; set; }
         public ProductModel Product { get; set; }
-        public byte[] ProductImage { get; set; }
+        public byte[]? ProductImage { get; set; }
     }
 }

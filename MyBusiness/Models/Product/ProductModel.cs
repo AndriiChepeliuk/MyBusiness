@@ -1,5 +1,6 @@
 ﻿using MyBusiness.Models.ProdImage;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace MyBusiness.Models.Product
 {
@@ -47,6 +48,7 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Price));
             }
         }
-        public ICollection<ProdImageModel> ProdImages { get; set; }
+        //public List<Image> Images { get; set; }
+        public ICollection<ProdImageModel> ProdImages { get; set; } = new List<ProdImageModel>();
     }
 }

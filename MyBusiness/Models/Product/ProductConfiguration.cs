@@ -12,6 +12,8 @@ namespace MyBusiness.Models.Product
                 .HasMany(p => p.ProdImages)
                 .WithOne(p => p.Product)
                 .HasForeignKey(p => p.ProductId);
+            //builder
+            //    .Ignore(p => p.Images);
         }
     }
 }
