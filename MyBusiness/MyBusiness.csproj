@@ -15,11 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FontAwesome.Sharp" Version="6.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +24,10 @@
     <Resource Include="Images\ambrella-logo.png" />
     <Resource Include="Images\CreateCart.jpg" />
     <Resource Include="Images\Supplies.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\DB\" />
   </ItemGroup>
 
 </Project>
