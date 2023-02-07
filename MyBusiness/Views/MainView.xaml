@@ -31,7 +31,11 @@
         <DataTemplate DataType="{x:Type viewModel:SuppliesViewModel}">
             <local:SuppliesView/>
         </DataTemplate>
-        
+
+        <DataTemplate DataType="{x:Type viewModel:AddProductViewModel}">
+            <local:AddProductView/>
+        </DataTemplate>
+
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -115,11 +119,12 @@
                         </RadioButton>
                         
                         <RadioButton Style="{StaticResource menuButton}"
-                                     Tag="{StaticResource color4}">
+                                     Tag="{StaticResource color4}"
+                                     Command="{Binding ShowAddProductViewCommand}">
 
                             <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="Image" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Default" Style="{StaticResource menuButtonText}"/>
+                                <fa:IconImage Icon="FileCirclePlus" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Add product" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
                         

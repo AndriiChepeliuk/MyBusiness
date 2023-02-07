@@ -49,6 +49,7 @@ namespace MyBusiness.ViewModels
         public ICommand ShowAllProductsViewCommand { get; }
         public ICommand ShowCreateCartViewCommand { get; }
         public ICommand ShowSuppliesViewCommand { get; }
+        public ICommand ShowAddProductViewCommand { get; }
 
         public MainViewModel()
         {
@@ -56,6 +57,7 @@ namespace MyBusiness.ViewModels
             ShowAllProductsViewCommand = new ViewModelCommand(ExecuteShowAllProductsViewCommand);
             ShowCreateCartViewCommand = new ViewModelCommand(ExecuteShowCreateCartViewCommand);
             ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
+            ShowAddProductViewCommand = new ViewModelCommand(ExecuteShowAddProductViewCommand);
 
             //--> Default view
             ExecuteShowAllProductsViewCommand(null);
@@ -81,6 +83,11 @@ namespace MyBusiness.ViewModels
             Icon = IconChar.ListCheck;
         }
 
-
+        private void ExecuteShowAddProductViewCommand(object obj)
+        {
+            CurrentChildView = new AddProductViewModel();
+            Caption = "Add product";
+            Icon = IconChar.FileCirclePlus;
+        }
     }
 }
