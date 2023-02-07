@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyBusiness.Views"
+             xmlns:viewModel="clr-namespace:MyBusiness.ViewModels"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -22,29 +24,35 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        
-        <Button Style="{StaticResource addImageButton}"
+        <Rectangle Grid.Row="0" Grid.RowSpan="3"
+                   Height="150"
+                   Width="150"
+                   RadiusX="5"
+                   RadiusY="5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/Images/DefaultImage.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Button x:Name="addPicture" 
+                Style="{StaticResource addImageButton}"
                 Grid.Row="3"
-                Tag="{StaticResource color1}">
+                Click="addPicture_Click">
+
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Add picture" Style="{StaticResource addImageButtonText}"/>
             </StackPanel>
+
         </Button>
-        
-        <Button x:Name="addPicture"
-                Background="#363636"
-                BorderBrush="{StaticResource color4}"
-                Grid.Column="1">
-            <fa:IconImage Icon="Add" Foreground="#818181"/>
+
+        <Button Style="{StaticResource addImageButton}"
+                Grid.Row="4"
+                Tag="{StaticResource color1}"
+                Command="{Binding AddProductViewModel}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Add picture 2" Style="{StaticResource addImageButtonText}"/>
+            </StackPanel>
         </Button>
-        <TextBlock Text="Add picture"
-                   Foreground="{StaticResource plainTextColor1}"
-                   FontSize="16"
-                   FontFamily="Montserrat"
-                   FontWeight="Medium"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   Grid.Column="0"
-                   Grid.Row="4"/>
+
     </Grid>
 </UserControl>
