@@ -16,6 +16,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -50,6 +51,25 @@
             </StackPanel>
 
         </Button>
+
+        <Label Grid.Column="1"
+               Grid.Row="1"
+               Style="{StaticResource propertyNameLabel}">
+            Product name
+        </Label>
+
+        <Label Grid.Column="1"
+               Grid.Row="2"
+               Style="{StaticResource propertyNameLabel}">
+            Category
+        </Label>
+
+        <Label Grid.Column="1"
+               Grid.Row="3"
+               Style="{StaticResource propertyNameLabel}">
+            Price
+        </Label>
+
 
     </Grid>
 </UserControl>
