@@ -2,9 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp">
 
-    <!--Control bar button-->
+    <!--#region Control bar button-->
     <Style x:Key="controlButton" TargetType="Button">
-        <!--Normal button style-->
+        
+        <!--#region Normal condition-->
         <Setter Property="Width" Value="35"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource plainTextColor1}"/>
@@ -18,26 +19,34 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <!--#endregion-->
 
         <Style.Triggers>
-            <!--Button Style on hover-->
+            
+            <!--#region On hover style-->
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{StaticResource panelActiveColor}"/>
                 <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
             </Trigger>
+            <!--#endregion-->
+            
         </Style.Triggers>
     </Style>
 
-    <!--Control button icon-->
+    <!--#region Control bar button icon-->
     <Style x:Key="controlButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}"/>
         <Setter Property="Width" Value="9"/>
         <Setter Property="Height" Value="9"/>
     </Style>
+    <!--#endregion-->
+    
+    <!--#endregion-->
 
-    <!--Menu button-->
+    <!--#region Menu button-->
     <Style x:Key="menuButton" TargetType="RadioButton">
-        <!--Normal condition-->
+        
+        <!--#region Normal condition-->
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="0,0,0,5"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -54,34 +63,41 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <!--#endregion-->
 
         <Style.Triggers>
-            <!--Button Style on hover-->
+            
+            <!--#region On hover style-->
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Margin" Value="0,0,0,5"/>
                 <Setter Property="Background" Value="{StaticResource panelOverColor}"/>
                 <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
             </Trigger>
-            <!--Activated button style-->
+            <!--#endregion-->
+
+            <!--#region Activated style-->
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Margin" Value="0,0,0,5"/>
                 <Setter Property="Background" Value="{StaticResource panelActiveColor}"/>
                 <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
                 <Setter Property="BorderBrush" Value="{Binding Path=Tag, RelativeSource={RelativeSource Self}}"/>
             </Trigger>
+            <!--#endregion-->
+            
         </Style.Triggers>
     </Style>
 
-    <!--Menu button icon-->
+    <!--#region Menu button icon-->
     <Style x:Key="menuButtonIcon" TargetType="fa:IconImage">
         <Setter Property="Foreground" Value="{Binding Path=Tag, RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
         <Setter Property="Width" Value="22"/>
         <Setter Property="Height" Value="22"/>
         <Setter Property="Margin" Value="35,0,20,0"/>
     </Style>
+    <!--#endregion-->
 
-    <!--Menu Button text-->
+    <!--#region Menu Button text-->
     <Style x:Key="menuButtonText" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=RadioButton}}"/>
         <Setter Property="FontFamily" Value="Montserrat"/>
@@ -89,5 +105,53 @@
         <Setter Property="FontSize" Value="13.5"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
+    <!--#endregion-->
+    
+    <!--#endregion-->
 
+    <!--#region Simple Button-->
+    <Style x:Key="addImageButton" TargetType="Button">
+        
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Background" Value="{StaticResource btnControlWindowColor}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--#endregion-->
+
+        <Style.Triggers>
+            
+            <!--#region On hover style-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource panelOverColor}"/>
+                <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
+            </Trigger>
+            <!--#endregion-->
+            
+        </Style.Triggers>
+    </Style>
+
+    <!--#region Simple Button text-->
+    <Style x:Key="addImageButtonText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource plainTextColor1}"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="13.5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <!--#endregion-->
+    
+    <!--#endregion-->
+    
 </ResourceDictionary>
