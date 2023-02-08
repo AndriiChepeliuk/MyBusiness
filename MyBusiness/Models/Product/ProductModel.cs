@@ -1,6 +1,4 @@
-﻿using MyBusiness.Models.ProdImage;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace MyBusiness.Models.Product
 {
@@ -9,7 +7,7 @@ namespace MyBusiness.Models.Product
         private string? name;
         private string? category;
         private float weight;
-        private decimal price;
+        private double price;
         private Image image;
 
         public int Id { get; set; }
@@ -40,7 +38,7 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Weight));
             }
         }
-        public decimal Price
+        public double Price
         {
             get { return price; }
             set
@@ -49,6 +47,7 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Price));
             }
         }
+        public byte[]? ProductImage { get; set; }
         public Image Image
         {
             get { return image; }
@@ -58,6 +57,5 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Image));
             }
         }
-        public ICollection<ProdImageModel> ProdImages { get; set; } = new List<ProdImageModel>();
     }
 }

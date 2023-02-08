@@ -6,16 +6,22 @@
              xmlns:local="clr-namespace:MyBusiness.Views"
              xmlns:viewModel="clr-namespace:MyBusiness.ViewModels"
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:converters="clr-namespace:MyBusiness.Helpers.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.DataContext>
         <viewModel:AddProductViewModel/>
     </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <converters:AddProductConverter x:Key="AddProductConverter"/>
+    </UserControl.Resources>
     
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -41,15 +47,73 @@
         </Rectangle>
 
         <Button x:Name="addPicture" 
-                Style="{StaticResource addImageButton}"
+                Style="{StaticResource simpleButton}"
                 Grid.Row="4"
                 Command="{Binding ChoosePictureCommand}">
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Add picture" Style="{StaticResource addImageButtonText}"/>
+                <TextBlock Text="Add picture" Style="{StaticResource simpleButtonText}"/>
             </StackPanel>
 
         </Button>
+
+        <Button x:Name="addProduct" 
+                Style="{StaticResource simpleButton}"
+                Grid.Column="2"
+                Grid.Row="7"
+                Command="{Binding AddProductCommand}">
+
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource AddProductConverter}">
+                    <Binding Path="Text" ElementName="propertyNameTextBox"/>
+                    <Binding Path="Text" ElementName="categoryTextBox"/>
+                    <Binding Path="Text" ElementName="priceTextBox"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Add product" Style="{StaticResource simpleButtonText}"/>
+            </StackPanel>
+
+        </Button>
+
+        <Label Grid.Column="1"
+               Grid.Row="1"
+               Style="{StaticResource propertyNameLabel}">
+            Product name
+        </Label>
+
+        <Label Grid.Column="1"
+               Grid.Row="2"
+               Style="{StaticResource propertyNameLabel}">
+            Category
+        </Label>
+
+        <Label Grid.Column="1"
+               Grid.Row="3"
+               Style="{StaticResource propertyNameLabel}">
+            Price
+        </Label>
+
+        <TextBox x:Name="propertyNameTextBox"
+                 Grid.Column="2"
+                 Grid.Row="1"
+                 Style="{StaticResource propertyValueTextBox}">
+        </TextBox>
+
+        <TextBox x:Name="categoryTextBox"
+                 Grid.Column="2"
+                 Grid.Row="2"
+                 Style="{StaticResource propertyValueTextBox}">
+        </TextBox>
+
+        <TextBox x:Name="priceTextBox"
+                 Grid.Column="2"
+                 Grid.Row="3"
+                 Style="{StaticResource propertyValueTextBox}">
+            0
+        </TextBox>
+
 
     </Grid>
 </UserControl>
