@@ -52,6 +52,18 @@
 
         </Button>
 
+        <Button x:Name="addProduct" 
+                Style="{StaticResource addImageButton}"
+                Grid.Column="2"
+                Grid.Row="7"
+                Command="{Binding ChoosePictureCommand}">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Add product" Style="{StaticResource addImageButtonText}"/>
+            </StackPanel>
+
+        </Button>
+
         <Label Grid.Column="1"
                Grid.Row="1"
                Style="{StaticResource propertyNameLabel}">
