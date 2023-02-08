@@ -111,6 +111,7 @@
                  Grid.Column="2"
                  Grid.Row="3"
                  Style="{StaticResource propertyValueTextBox}">
+            0
         </TextBox>
 
 

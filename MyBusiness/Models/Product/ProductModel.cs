@@ -1,6 +1,4 @@
-﻿using MyBusiness.Models.ProdImage;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace MyBusiness.Models.Product
 {
@@ -49,6 +47,7 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Price));
             }
         }
+        public byte[]? ProductImage { get; set; }
         public Image Image
         {
             get { return image; }
@@ -58,6 +57,5 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Image));
             }
         }
-        public ICollection<ProdImageModel> ProdImages { get; set; } = new List<ProdImageModel>();
     }
 }
