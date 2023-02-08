@@ -10,6 +10,7 @@ namespace MyBusiness.Models.Product
         private string? category;
         private float weight;
         private decimal price;
+        private Image image;
 
         public int Id { get; set; }
         public string Name 
@@ -48,7 +49,15 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Price));
             }
         }
-        //public List<Image> Images { get; set; }
+        public Image Image
+        {
+            get { return image; }
+            set
+            {
+                image = value;
+                OnPropertyChanged(nameof(Image));
+            }
+        }
         public ICollection<ProdImageModel> ProdImages { get; set; } = new List<ProdImageModel>();
     }
 }

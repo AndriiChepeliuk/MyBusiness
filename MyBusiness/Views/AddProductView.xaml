@@ -9,6 +9,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.DataContext>
+        <viewModel:AddProductViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -21,37 +25,30 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Rectangle Grid.Row="0" Grid.RowSpan="3"
+        <Rectangle Grid.Row="1" Grid.RowSpan="3"
                    Height="150"
                    Width="150"
                    RadiusX="5"
                    RadiusY="5">
             <Rectangle.Fill>
-                <ImageBrush ImageSource="/Images/DefaultImage.jpg"/>
+                <ImageBrush ImageSource="{Binding ImageSource}"/>
             </Rectangle.Fill>
         </Rectangle>
 
         <Button x:Name="addPicture" 
                 Style="{StaticResource addImageButton}"
-                Grid.Row="3"
-                Click="addPicture_Click">
+                Grid.Row="4"
+                Command="{Binding ChoosePictureCommand}">
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Add picture" Style="{StaticResource addImageButtonText}"/>
             </StackPanel>
 
-        </Button>
-
-        <Button Style="{StaticResource addImageButton}"
-                Grid.Row="4"
-                Tag="{StaticResource color1}"
-                Command="{Binding AddProductViewModel}">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Add picture 2" Style="{StaticResource addImageButtonText}"/>
-            </StackPanel>
         </Button>
 
     </Grid>
