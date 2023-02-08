@@ -9,6 +9,7 @@
                 <ResourceDictionary Source="/Helpers/Styles/UIColors.xaml"/>
                 <ResourceDictionary Source="/Helpers/Styles/ButtonStyles.xaml"/>
                 <ResourceDictionary Source="/Helpers/Styles/LabelStyles.xaml"/>
+                <ResourceDictionary Source="/Helpers/Styles/TextBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
