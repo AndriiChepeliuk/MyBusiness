@@ -110,7 +110,7 @@
     <!--#endregion-->
 
     <!--#region Simple Button-->
-    <Style x:Key="addImageButton" TargetType="Button">
+    <Style x:Key="simpleButton" TargetType="Button">
         
         <!--#region Normal condition-->
         <Setter Property="Height" Value="30"/>
@@ -143,7 +143,7 @@
     </Style>
 
     <!--#region Simple Button text-->
-    <Style x:Key="addImageButtonText" TargetType="TextBlock">
+    <Style x:Key="simpleButtonText" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource plainTextColor1}"/>
         <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="FontWeight" Value="Medium"/>

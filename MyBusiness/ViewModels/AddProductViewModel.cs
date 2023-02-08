@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using MyBusiness.Models.Product;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Input;
@@ -12,6 +13,7 @@ namespace MyBusiness.ViewModels
         private string? imageSource;
 
         public ICommand ChoosePictureCommand { get; }
+        public ICommand AddProductCommand { get; }
 
         public ProductModel Product { get; set; } = new ProductModel();
         public Image ProductImage
@@ -38,6 +40,16 @@ namespace MyBusiness.ViewModels
             ImageSource = "../../../Images/DefaultImage.jpg";
             ProductImage = Image.FromFile(ImageSource);
             ChoosePictureCommand = new ViewModelCommand(ExecuteChoosePictureCommand);
+            AddProductCommand = new ViewModelCommand(ExecuteAddProductCommand);
+        }
+
+        private void ExecuteAddProductCommand(object obj)
+        {
+            var values = (object[])obj;
+            Product.Name = (string)values[0];
+            Product.Category = (string)values[1];
+            var productPrice = double.Parse((string)values[2]);
+            Product.Price = productPrice;
         }
 
         private void ExecuteChoosePictureCommand(object obj)
