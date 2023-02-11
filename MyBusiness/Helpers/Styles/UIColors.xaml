@@ -2,13 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--Background Colors-->
-    <Color x:Key="primaryBackColor1">#414141</Color>
-    <Color x:Key="primaryBackColor2">#373737</Color>
-    <Color x:Key="primaryBackColor3">#2D2D2D</Color>
-    <Color x:Key="primaryBackColor4">#232323</Color>
-
-    <!--Window Border Colors-->
-    <Color x:Key="winBorderColor1">#202020</Color>
+    <SolidColorBrush x:Key="backColor1">#404040</SolidColorBrush>
+    <SolidColorBrush x:Key="backColor2">#373737</SolidColorBrush>
+    <SolidColorBrush x:Key="backColor3">#202020</SolidColorBrush>
+    <SolidColorBrush x:Key="backColor4">#101010</SolidColorBrush>
 
     <!--Button Colors-->
     <SolidColorBrush x:Key="btnControlWindowColor" Color="#464646"/>
@@ -17,7 +14,7 @@
     <!--Panel Colors-->
     <SolidColorBrush x:Key="panelColor" Color="#E30528"/>
     <SolidColorBrush x:Key="panelOverColor" Color="#545454"/>
-    <SolidColorBrush x:Key="panelActiveColor" Color="#202020"/>
+    <SolidColorBrush x:Key="panelActiveColor" Color="#101010"/>
 
     <!--Font Colors-->
     <SolidColorBrush x:Key="titleColor1" Color="#C8C8C8"/>
