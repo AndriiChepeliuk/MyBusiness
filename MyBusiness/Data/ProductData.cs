@@ -45,11 +45,20 @@ namespace MyBusiness.Data
             }
         }
 
-        public static void EditProduct(ProductModel product)
+        public static void EditProduct(ProductModel editedProduct)
         {
             using (var context = new ApplicationContext())
             {
-
+                var currentProduct = GetProductById(editedProduct.Id);
+                if (currentProduct != null)
+                {
+                    currentProduct.Name = editedProduct.Name;
+                    currentProduct.Category = editedProduct.Category;
+                    currentProduct.ProductImage = editedProduct.ProductImage;
+                    currentProduct.Price = editedProduct.Price;
+                    //context.Entry(currentProduct);
+                    context.SaveChanges();
+                }
             }
         }
     }
