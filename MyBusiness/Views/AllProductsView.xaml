@@ -12,48 +12,102 @@
         <viewModel:AllProductsViewModel/>
     </UserControl.DataContext>
 
-    <ListView Grid.Row="1"
-              Name="LViewProducts"
-              ItemsSource="{Binding Products}"
-              ScrollViewer.VerticalScrollBarVisibility="Visible"
-              Background="Transparent"
-              BorderBrush="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <Grid Margin="20" Width="200">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="150"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                    </Grid.RowDefinitions>
+        <ListView Name="LViewProducts"
+                  Grid.Row="0"
+                  ItemsSource="{Binding Products}"
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  HorizontalContentAlignment="Center"
+                  Background="Transparent"
+                  BorderBrush="Transparent">
 
-                    <Image Grid.Row="0"
-                           Width="150" 
-                           Height="150" 
-                           Stretch="Uniform" 
-                           Source="{Binding Image}"/>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
 
-                    <TextBlock Text="{Binding Name}"
-                               Grid.Row="1"
-                               FontSize="14"
-                               FontWeight="Medium"
-                               Foreground="{StaticResource plainTextColor1}"
-                               VerticalAlignment="Center"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"/>
-                    <TextBlock Text="{Binding Category}"
-                               Grid.Row="2"
-                               FontSize="14"
-                               FontWeight="Medium"
-                               Foreground="{StaticResource plainTextColor1}"
-                               VerticalAlignment="Center"
-                               TextAlignment="Center"
-                               TextWrapping="Wrap"/>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="{StaticResource backColor1}"
+                            BorderThickness="1"
+                            Margin="5"
+                            CornerRadius="10">
 
-                </Grid>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                        <Grid Margin="20" Width="200">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+
+                            <Image Grid.Row="0"
+                                   Width="150"
+                                   Height="150" 
+                                   Stretch="Uniform" 
+                                   Source="{Binding Image}"/>
+
+                            <TextBlock Text="{Binding Name}"
+                                   Grid.Row="1"
+                                   FontSize="14"
+                                   FontFamily="Montserrat"
+                                   FontWeight="Medium"
+                                   Foreground="{StaticResource plainTextColor1}"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Price, StringFormat={}{0} грн}"
+                                   Grid.Row="2"
+                                   FontSize="14"
+                                   FontWeight="Medium"
+                                   Foreground="{StaticResource plainTextColor1}"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"/>
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    FlowDirection="RightToLeft"
+                    Margin="5">
+
+            <Button x:Name="deleteProduct" 
+                    Style="{StaticResource simpleButton}"
+                    Margin="5">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Delete product" Style="{StaticResource simpleButtonText}"/>
+                </StackPanel>
+
+            </Button>
+
+            <Button x:Name="editProduct" 
+                    Style="{StaticResource simpleButton}"
+                    Margin="5">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Edit product" Style="{StaticResource simpleButtonText}"/>
+                </StackPanel>
+
+            </Button>
+        </StackPanel>
+
+
+
+
+    </Grid>
+
 
 </UserControl>
