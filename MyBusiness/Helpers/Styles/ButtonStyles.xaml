@@ -134,7 +134,7 @@
             
             <!--#region On hover style-->
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource panelOverColor}"/>
+                <Setter Property="Background" Value="{StaticResource btnControlWindowColorIsMouseOver}"/>
                 <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
             </Trigger>
             <!--#endregion-->
@@ -144,7 +144,7 @@
 
     <!--#region Simple Button text-->
     <Style x:Key="simpleButtonText" TargetType="TextBlock">
-        <Setter Property="Foreground" Value="{StaticResource plainTextColor1}"/>
+        <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
         <Setter Property="FontFamily" Value="Montserrat"/>
         <Setter Property="FontWeight" Value="Medium"/>
         <Setter Property="FontSize" Value="13.5"/>
@@ -153,5 +153,95 @@
     <!--#endregion-->
     
     <!--#endregion-->
-    
+
+    <!--#region Edit Button-->
+    <Style x:Key="editButton" TargetType="Button">
+
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Background" Value="{StaticResource btnEditColor}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--#endregion-->
+
+        <Style.Triggers>
+
+            <!--#region On hover style-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource btnEditColorIsMouseOver}"/>
+                <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
+            </Trigger>
+            <!--#endregion-->
+
+        </Style.Triggers>
+    </Style>
+
+    <!--#region Edit Button text-->
+    <Style x:Key="editButtonText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource titleColor2}"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="13.5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <!--#endregion-->
+
+    <!--#endregion-->
+
+    <!--#region Delete Button-->
+    <Style x:Key="deleteButton" TargetType="Button">
+
+        <!--#region Normal condition-->
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Background" Value="{StaticResource btnDeleteColor}"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="5"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--#endregion-->
+
+        <Style.Triggers>
+
+            <!--#region On hover style-->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource btnDeleteColorIsMouseOver}"/>
+                <Setter Property="Foreground" Value="{StaticResource titleColor1}"/>
+            </Trigger>
+            <!--#endregion-->
+
+        </Style.Triggers>
+    </Style>
+
+    <!--#region Delete Button text-->
+    <Style x:Key="deleteButtonText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource titleColor2}"/>
+        <Setter Property="FontFamily" Value="Montserrat"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="FontSize" Value="13.5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <!--#endregion-->
+
+    <!--#endregion-->
+
 </ResourceDictionary>
