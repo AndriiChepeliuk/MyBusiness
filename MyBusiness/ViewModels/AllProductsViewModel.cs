@@ -1,6 +1,8 @@
 ﻿using MyBusiness.Data;
 using MyBusiness.Models.Product;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.IO;
 
 namespace MyBusiness.ViewModels
 {
@@ -22,7 +24,7 @@ namespace MyBusiness.ViewModels
 
             Products = new ObservableCollection<ProductModel>(ProductData.GetAllProducts());
 
-
+            
 
         }
 

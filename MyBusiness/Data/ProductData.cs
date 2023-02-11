@@ -1,6 +1,8 @@
 ﻿using MyBusiness.Models.Product;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Windows.Media.Imaging;
 
 namespace MyBusiness.Data
 {
@@ -21,6 +23,16 @@ namespace MyBusiness.Data
             using (var context = new ApplicationContext())
             {
                 var products = context.Products.OrderBy(p => p.Category).ToList();
+
+                foreach (var product in products)
+                {
+                    MemoryStream memoryStream = new MemoryStream(product.ProductImage);
+                    product.Image = new BitmapImage();
+                    product.Image.BeginInit();
+                    product.Image.StreamSource = memoryStream;
+                    product.Image.EndInit();
+                }
+
                 return products;
             }
         }

@@ -12,44 +12,48 @@
         <viewModel:AllProductsViewModel/>
     </UserControl.DataContext>
 
-    <StackPanel>
-        <!--<Image Source="/Images/AllProducts.jpg"/>-->
+    <ListView Grid.Row="1"
+              Name="LViewProducts"
+              ItemsSource="{Binding Products}"
+              ScrollViewer.VerticalScrollBarVisibility="Visible"
+              Background="Transparent"
+              BorderBrush="Transparent">
 
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Margin="20" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
 
-            <ListView Grid.Row="1" Name="LViewProducts" ItemsSource="{Binding Products}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Margin="20" Width="200">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="70"/>
-                                <RowDefinition Height="70"/>
-                            </Grid.RowDefinitions>
+                    <Image Grid.Row="0"
+                           Width="150" 
+                           Height="150" 
+                           Stretch="Uniform" 
+                           Source="{Binding Image}"/>
 
-                            <TextBlock Text="{Binding Name}"
-                                       Grid.Row="0"
-                                       FontSize="14"
-                                       Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding Category}"
-                                       Grid.Row="1"
-                                       FontSize="14"
-                                       VerticalAlignment="Center"
-                                       TextAlignment="Center"
-                                       TextWrapping="Wrap"/>
-                            
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </Grid>
-        
-    </StackPanel>
+                    <TextBlock Text="{Binding Name}"
+                               Grid.Row="1"
+                               FontSize="14"
+                               FontWeight="Medium"
+                               Foreground="{StaticResource plainTextColor1}"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"/>
+                    <TextBlock Text="{Binding Category}"
+                               Grid.Row="2"
+                               FontSize="14"
+                               FontWeight="Medium"
+                               Foreground="{StaticResource plainTextColor1}"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"/>
+
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
 </UserControl>

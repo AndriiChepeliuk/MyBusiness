@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Windows.Media.Imaging;
 
 namespace MyBusiness.Models.Product
 {
@@ -8,7 +9,7 @@ namespace MyBusiness.Models.Product
         private string? category;
         private float weight;
         private double price;
-        private Image image;
+        private BitmapImage image;
 
         public int Id { get; set; }
         public string Name 
@@ -48,7 +49,7 @@ namespace MyBusiness.Models.Product
             }
         }
         public byte[]? ProductImage { get; set; }
-        public Image Image
+        public BitmapImage Image
         {
             get { return image; }
             set
