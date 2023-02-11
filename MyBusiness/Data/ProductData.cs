@@ -12,8 +12,7 @@ namespace MyBusiness.Data
         {
             using (var context = new ApplicationContext())
             {
-                var productToDB = new ProductModel();
-                context.Products.Add(productToDB);
+                context.Products.Add(product);
                 context.SaveChanges();
             }
         }
@@ -43,6 +42,14 @@ namespace MyBusiness.Data
             {
                 var product = context.Products.FirstOrDefault(x => x.Id == id);
                 return product;
+            }
+        }
+
+        public static void EditProduct(ProductModel product)
+        {
+            using (var context = new ApplicationContext())
+            {
+
             }
         }
     }
