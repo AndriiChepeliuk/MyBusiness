@@ -37,4 +37,7 @@
     <SolidColorBrush x:Key="color9" Color="#07F3C0"/>
     <SolidColorBrush x:Key="color10" Color="#FBA1AA"/>
 
+    <Color x:Key="WordDarkBlue">#0c6991</Color>
+    <SolidColorBrush x:Key="WordDarkBlueBrush" Color="{StaticResource WordDarkBlue}" />
+
 </ResourceDictionary>
