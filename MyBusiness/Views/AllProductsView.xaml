@@ -84,21 +84,21 @@
                     Margin="5">
 
             <Button x:Name="deleteProduct" 
-                    Style="{StaticResource simpleButton}"
+                    Style="{StaticResource deleteButton}"
                     Margin="5">
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Delete product" Style="{StaticResource simpleButtonText}"/>
+                    <TextBlock Text="Delete product" Style="{StaticResource deleteButtonText}"/>
                 </StackPanel>
 
             </Button>
 
             <Button x:Name="editProduct" 
-                    Style="{StaticResource simpleButton}"
+                    Style="{StaticResource editButton}"
                     Margin="5">
 
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Edit product" Style="{StaticResource simpleButtonText}"/>
+                    <TextBlock Text="Edit product" Style="{StaticResource editButtonText}"/>
                 </StackPanel>
 
             </Button>
