@@ -6,6 +6,7 @@
     <SolidColorBrush x:Key="backColor2">#373737</SolidColorBrush>
     <SolidColorBrush x:Key="backColor3">#202020</SolidColorBrush>
     <SolidColorBrush x:Key="backColor4">#101010</SolidColorBrush>
+    <SolidColorBrush x:Key="backColor5">#969696</SolidColorBrush>
 
     <!--Button Colors-->
     <SolidColorBrush x:Key="btnControlWindowColor" Color="#464646"/>

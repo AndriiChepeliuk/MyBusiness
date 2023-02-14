@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace MyBusiness.Helpers.Converters
 {
-    public class AddProductConverter : IMultiValueConverter
+    public class EditProductConverter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {

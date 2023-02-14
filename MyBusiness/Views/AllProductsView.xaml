@@ -21,6 +21,7 @@
         <ListView Name="LViewProducts"
                   Grid.Row="0"
                   ItemsSource="{Binding Products}"
+                  SelectedItem="{Binding SelectedProduct}"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                   HorizontalContentAlignment="Center"
@@ -95,8 +96,9 @@
 
             <Button x:Name="editProduct" 
                     Style="{StaticResource editButton}"
-                    Margin="5">
-
+                    Margin="5"
+                    Command="{Binding EditProductCommand}">
+                
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Edit product" Style="{StaticResource editButtonText}"/>
                 </StackPanel>

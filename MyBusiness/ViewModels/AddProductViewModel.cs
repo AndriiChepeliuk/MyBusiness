@@ -33,17 +33,13 @@ namespace MyBusiness.ViewModels
 
         private void ExecuteAddProductCommand(object obj)
         {
-            using (ApplicationContext context = new ApplicationContext())
+            Product = (ProductModel)obj;
+            Product.Id = 0;
+            if (!string.IsNullOrEmpty(ImageSource))
             {
-                Product = (ProductModel)obj;
-                Product.Id = 0;
-                if (!string.IsNullOrEmpty(ImageSource))
-                {
-                    Product.ProductImage = ImageHelper.ConvertImageToByteArray(ImageSource);
-                }
-                context.Products.Add(Product);
-                context.SaveChanges();
+                Product.ProductImage = ImageHelper.ConvertImageToByteArray(ImageSource);
             }
+            ProductData.AddProduct(Product);
         }
 
         private void ExecuteChoosePictureCommand(object obj)

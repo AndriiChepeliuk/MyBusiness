@@ -12,8 +12,7 @@ namespace MyBusiness.Data
         {
             using (var context = new ApplicationContext())
             {
-                var productToDB = new ProductModel();
-                context.Products.Add(productToDB);
+                context.Products.Add(product);
                 context.SaveChanges();
             }
         }
@@ -43,6 +42,24 @@ namespace MyBusiness.Data
             {
                 var product = context.Products.FirstOrDefault(x => x.Id == id);
                 return product;
+            }
+        }
+
+        public static void EditProduct(ProductModel editedProduct)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var currentProduct = GetProductById(editedProduct.Id);
+                if (currentProduct != null)
+                {
+                    currentProduct.Name = editedProduct.Name;
+                    currentProduct.Category = editedProduct.Category;
+                    currentProduct.ProductImage = editedProduct.ProductImage;
+                    currentProduct.Price = editedProduct.Price;
+                    //context.Entry(currentProduct);
+                    context.Update(currentProduct);
+                    context.SaveChanges();
+                }
             }
         }
     }
