@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyBusiness.Views"
         xmlns:viewModel="clr-namespace:MyBusiness.ViewModels"
         mc:Ignorable="d"
-        Title="EditProductViewWindow" Height="550" Width="900"
+        Title="EditProductViewWindow" Height="450" Width="900"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
@@ -25,7 +25,8 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="150"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0,5*"/>
+                <ColumnDefinition Width="0,5*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -58,8 +59,72 @@
                     <TextBlock Text="Change picture" Style="{StaticResource simpleButtonText}"/>
                 </StackPanel>
             </Button>
+
+            <Button x:Name="cancelEditing"
+                    Style="{StaticResource deleteButton}"
+                    Grid.Column="3"
+                    Grid.Row="6"
+                    Command="{Binding CancelChangesCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}">
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Cancel" Style="{StaticResource deleteButtonText}"/>
+                </StackPanel>
+            </Button>
             
-            
+            <Button x:Name="editProduct" 
+                    Style="{StaticResource editButton}"
+                    Grid.Column="2"
+                    Grid.Row="6"
+                    Command="{Binding SaveChangesCommand}">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Save changes" Style="{StaticResource editButtonText}"/>
+                </StackPanel>
+
+            </Button>
+
+
+            <Label Grid.Column="1"
+               Grid.Row="1"
+               Style="{StaticResource propertyNameLabel}">
+                Product name
+            </Label>
+
+            <Label Grid.Column="1"
+               Grid.Row="2"
+               Style="{StaticResource propertyNameLabel}">
+                Category
+            </Label>
+
+            <Label Grid.Column="1"
+               Grid.Row="3"
+               Style="{StaticResource propertyNameLabel}">
+                Price
+            </Label>
+
+            <TextBox x:Name="propertyNameTextBox"
+                     Grid.Column="2" Grid.ColumnSpan="3"
+                     Grid.Row="1"
+                     Style="{StaticResource propertyValueTextBox}"
+                     Text="{Binding ProductToEdit.Name}">
+            </TextBox>
+
+            <TextBox x:Name="categoryTextBox"
+                     Grid.Column="2" Grid.ColumnSpan="3"
+                     Grid.Row="2"
+                     Style="{StaticResource propertyValueTextBox}"
+                     Text="{Binding ProductToEdit.Category}">
+            </TextBox>
+
+            <TextBox x:Name="priceTextBox"
+                     Grid.Column="2" Grid.ColumnSpan="3"
+                     Grid.Row="3"
+                     Style="{StaticResource propertyValueTextBox}"
+                     Text="{Binding ProductToEdit.Price}">
+            </TextBox>
+
         </Grid>
 
     </Border>

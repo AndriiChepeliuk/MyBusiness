@@ -47,7 +47,7 @@ namespace MyBusiness.ViewModels
 
         private void ExecuteEditProductCommand(object obj)
         {
-            EditProductViewModel editProductViewModel = new EditProductViewModel() { ProductToEdit = selectedProduct };
+            EditProductViewModel editProductViewModel = new EditProductViewModel(selectedProduct);
             var editWindow = new EditProductViewWindow() { DataContext = editProductViewModel };
             editWindow.ShowDialog();
         }

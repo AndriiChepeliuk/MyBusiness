@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
 using MyBusiness.Helpers;
 using MyBusiness.Models.Product;
+using System;
 using System.IO;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -11,6 +13,7 @@ namespace MyBusiness.ViewModels
     public class EditProductViewModel : ViewModelBase
     {
         private ProductModel productToEdit;
+        private ProductModel productData;
         public ProductModel ProductToEdit
         {
             get { return productToEdit; }
@@ -22,15 +25,33 @@ namespace MyBusiness.ViewModels
         }
 
         public ICommand ChoosePictureCommand { get; }
+        public ICommand SaveChangesCommand { get; }
+        public ICommand CancelChangesCommand { get; }
 
-        public EditProductViewModel()
+        public EditProductViewModel() : this(new ProductModel()) { }
+
+        public EditProductViewModel(ProductModel product)
         {
             ChoosePictureCommand = new ViewModelCommand(ExecuteChoosePictureCommand);
+            SaveChangesCommand = new ViewModelCommand(ExecuteSaveChangesCommand);
+            CancelChangesCommand = new ViewModelCommand(ExecuteCancelChangesCommand);
+            ProductToEdit = product;
+            productData = (ProductModel)product.Clone();
         }
-        //public EditProductViewModel(ProductModel productModel)
-        //{
-        //    ProductToEdit = productModel;
-        //}
+
+        private void ExecuteCancelChangesCommand(object obj)
+        {
+            ProductToEdit.ProductImage = productData.ProductImage;
+            ProductToEdit.Image = productData.Image;
+
+            var wind = (Window)obj;
+            wind.Close();
+        }
+
+        private void ExecuteSaveChangesCommand(object obj)
+        {
+            throw new NotImplementedException();
+        }
 
         private void ExecuteChoosePictureCommand(object obj)
         {
