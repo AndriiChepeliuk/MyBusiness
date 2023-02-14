@@ -1,7 +1,6 @@
 ﻿using MyBusiness.Data;
 using MyBusiness.Models.Product;
 using MyBusiness.Views;
-using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 

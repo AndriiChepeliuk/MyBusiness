@@ -1,11 +1,10 @@
 ﻿using Microsoft.Win32;
+using MyBusiness.Data;
 using MyBusiness.Helpers;
 using MyBusiness.Models.Product;
-using System;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace MyBusiness.ViewModels
@@ -50,7 +49,10 @@ namespace MyBusiness.ViewModels
 
         private void ExecuteSaveChangesCommand(object obj)
         {
-            throw new NotImplementedException();
+            ProductData.EditProduct(ProductToEdit);
+
+            var wind = (Window)obj;
+            wind.Close();
         }
 
         private void ExecuteChoosePictureCommand(object obj)

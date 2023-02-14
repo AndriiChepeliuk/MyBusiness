@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyBusiness.Views"
         xmlns:viewModel="clr-namespace:MyBusiness.ViewModels"
+        xmlns:converters="clr-namespace:MyBusiness.Helpers.Converters"
         mc:Ignorable="d"
         Title="EditProductViewWindow" Height="450" Width="900"
         WindowStartupLocation="CenterScreen"
@@ -67,17 +68,19 @@
                     Command="{Binding CancelChangesCommand}"
                     CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
                                         AncestorType={x:Type Window}}}">
-                
+
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Cancel" Style="{StaticResource deleteButtonText}"/>
                 </StackPanel>
             </Button>
-            
+
             <Button x:Name="editProduct" 
                     Style="{StaticResource editButton}"
                     Grid.Column="2"
                     Grid.Row="6"
-                    Command="{Binding SaveChangesCommand}">
+                    Command="{Binding SaveChangesCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}">
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Save changes" Style="{StaticResource editButtonText}"/>
@@ -128,7 +131,7 @@
         </Grid>
 
     </Border>
-    
-    
-    
+
+
+
 </Window>

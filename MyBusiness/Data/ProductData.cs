@@ -57,6 +57,7 @@ namespace MyBusiness.Data
                     currentProduct.ProductImage = editedProduct.ProductImage;
                     currentProduct.Price = editedProduct.Price;
                     //context.Entry(currentProduct);
+                    context.Update(currentProduct);
                     context.SaveChanges();
                 }
             }
