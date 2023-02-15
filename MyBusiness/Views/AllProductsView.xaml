@@ -86,7 +86,8 @@
 
             <Button x:Name="deleteProduct" 
                     Style="{StaticResource deleteButton}"
-                    Margin="5">
+                    Margin="5"
+                    Command="{Binding DeleteProductCommand}">
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Delete product" Style="{StaticResource deleteButtonText}"/>
