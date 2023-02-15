@@ -48,11 +48,15 @@
                                 <RowDefinition Height="30"/>
                             </Grid.RowDefinitions>
 
-                            <Image Grid.Row="0"
-                                   Width="150"
-                                   Height="150" 
-                                   Stretch="Uniform" 
-                                   Source="{Binding Image}"/>
+                            <Rectangle Grid.Row="0"
+                                       Height="150"
+                                       Width="150"
+                                       RadiusX="5"
+                                       RadiusY="5">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{Binding Image}"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
 
                             <TextBlock Text="{Binding Name}"
                                    Grid.Row="1"
@@ -86,7 +90,8 @@
 
             <Button x:Name="deleteProduct" 
                     Style="{StaticResource deleteButton}"
-                    Margin="5">
+                    Margin="5"
+                    Command="{Binding DeleteProductCommand}">
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Delete product" Style="{StaticResource deleteButtonText}"/>
@@ -98,7 +103,7 @@
                     Style="{StaticResource editButton}"
                     Margin="5"
                     Command="{Binding EditProductCommand}">
-                
+
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Edit product" Style="{StaticResource editButtonText}"/>
                 </StackPanel>

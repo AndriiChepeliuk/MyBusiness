@@ -42,6 +42,9 @@ namespace MyBusiness.ViewModels
         {
             ProductToEdit.ProductImage = productData.ProductImage;
             ProductToEdit.Image = productData.Image;
+            ProductToEdit.Name = productData.Name;
+            ProductToEdit.Category = productData.Category;
+            ProductToEdit.Price = productData.Price;
 
             var wind = (Window)obj;
             wind.Close();

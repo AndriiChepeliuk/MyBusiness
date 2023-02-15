@@ -62,5 +62,18 @@ namespace MyBusiness.Data
                 }
             }
         }
+
+        public static void DeleteProduct(int productId)
+        {
+            using (var context = new ApplicationContext())
+            {
+                var productToDelete = GetProductById(productId);
+                if (productToDelete != null)
+                {
+                    context.Products.Remove(productToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
     }
 }
