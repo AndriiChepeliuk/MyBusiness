@@ -45,7 +45,8 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="150"/>
                                 <RowDefinition Height="30"/>
-                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="25"/>
                             </Grid.RowDefinitions>
 
                             <Rectangle Grid.Row="0"
@@ -69,6 +70,14 @@
                                    TextWrapping="Wrap"/>
                             <TextBlock Text="{Binding Price, StringFormat={}{0} грн}"
                                    Grid.Row="2"
+                                   FontSize="14"
+                                   FontWeight="Medium"
+                                   Foreground="{StaticResource plainTextColor1}"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding AvailableWeight, StringFormat={}{0} кг}"
+                                   Grid.Row="3"
                                    FontSize="14"
                                    FontWeight="Medium"
                                    Foreground="{StaticResource plainTextColor1}"

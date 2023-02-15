@@ -12,7 +12,7 @@ namespace MyBusiness.Helpers.Converters
             ProductModel product = new ProductModel();
             product.Name = (string)values[0];
             product.Category = (string)values[1];
-            product.Price = double.Parse((string)values[2]);
+            product.Price = float.Parse((string)values[2]);
             return product;
         }
 
