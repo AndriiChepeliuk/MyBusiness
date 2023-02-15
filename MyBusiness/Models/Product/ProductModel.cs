@@ -6,8 +6,9 @@ namespace MyBusiness.Models.Product
     {
         private string? name;
         private string? category;
-        private float weight;
-        private double price;
+        private float availableWeight;
+        private float reservedWeight;
+        private float price;
         private BitmapImage image;
 
         public int Id { get; set; }
@@ -29,16 +30,25 @@ namespace MyBusiness.Models.Product
                 OnPropertyChanged(nameof(Category));
             }
         }
-        public float Weight
+        public float AvailableWeight
         {
-            get { return weight; }
+            get { return availableWeight; }
             set
             {
-                weight = value;
-                OnPropertyChanged(nameof(Weight));
+                availableWeight = value;
+                OnPropertyChanged(nameof(AvailableWeight));
             }
         }
-        public double Price
+        public float ReservedWeight
+        {
+            get { return reservedWeight; }
+            set
+            {
+                reservedWeight = value;
+                OnPropertyChanged(nameof(ReservedWeight));
+            }
+        }
+        public float Price
         {
             get { return price; }
             set
