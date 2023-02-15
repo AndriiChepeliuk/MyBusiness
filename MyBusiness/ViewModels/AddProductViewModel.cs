@@ -8,12 +8,21 @@ namespace MyBusiness.ViewModels
 {
     public class AddProductViewModel : ViewModelBase
     {
+        private ProductModel product;
         private string? imageSource;
 
         public ICommand ChoosePictureCommand { get; }
         public ICommand AddProductCommand { get; }
 
-        public ProductModel Product { get; set; }
+        public ProductModel Product
+        {
+            get { return product; }
+            set
+            {
+                product = value;
+                OnPropertyChanged(nameof(Product));
+            }
+        }
         public string ImageSource
         {
             get { return imageSource; }
@@ -26,6 +35,7 @@ namespace MyBusiness.ViewModels
 
         public AddProductViewModel()
         {
+            Product = new ProductModel();
             ImageSource = "../../../Images/DefaultImage.jpg";
             ChoosePictureCommand = new ViewModelCommand(ExecuteChoosePictureCommand);
             AddProductCommand = new ViewModelCommand(ExecuteAddProductCommand);
@@ -33,13 +43,13 @@ namespace MyBusiness.ViewModels
 
         private void ExecuteAddProductCommand(object obj)
         {
-            Product = (ProductModel)obj;
-            Product.Id = 0;
             if (!string.IsNullOrEmpty(ImageSource))
             {
                 Product.ProductImage = ImageHelper.ConvertImageToByteArray(ImageSource);
             }
             ProductData.AddProduct(Product);
+            Product = new ProductModel();
+            ImageSource = "../../../Images/DefaultImage.jpg";
         }
 
         private void ExecuteChoosePictureCommand(object obj)
@@ -54,7 +64,5 @@ namespace MyBusiness.ViewModels
                 ImageSource = op.FileName;
             }
         }
-
-
     }
 }
