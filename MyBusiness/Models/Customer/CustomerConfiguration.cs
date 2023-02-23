@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyBusiness.Models.Customer
 {
-    internal class CustomerConfiguration
+    public class CustomerConfiguration : IEntityTypeConfiguration<CustomerModel>
     {
+        public void Configure(EntityTypeBuilder<CustomerModel> builder)
+        {
+            builder
+                .HasMany(c => c.Carts)
+                .WithOne(c => c.Customer)
+                .HasForeignKey(c => c.CustomerId);
+        }
     }
 }

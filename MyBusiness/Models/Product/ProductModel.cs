@@ -11,7 +11,7 @@ namespace MyBusiness.Models.Product
         private float price;
         private BitmapImage image;
 
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Name 
         { 
             get { return name; } 
