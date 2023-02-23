@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
-using MyBusiness.Data;
 using MyBusiness.Helpers;
 using MyBusiness.Models.Product;
+using MyBusiness.Services;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -52,7 +52,7 @@ namespace MyBusiness.ViewModels
 
         private void ExecuteSaveChangesCommand(object obj)
         {
-            ProductData.EditProduct(ProductToEdit);
+            ProductModelService.EditProduct(ProductToEdit);
 
             var wind = (Window)obj;
             wind.Close();
