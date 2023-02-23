@@ -1,12 +1,13 @@
-﻿using MyBusiness.Models.Product;
+﻿using MyBusiness.Data;
+using MyBusiness.Models.Product;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
 
-namespace MyBusiness.Data
+namespace MyBusiness.Services
 {
-    public class ProductData
+    public class ProductModelService
     {
         public static void AddProduct(ProductModel product)
         {

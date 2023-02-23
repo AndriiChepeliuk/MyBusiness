@@ -1,5 +1,5 @@
-﻿using MyBusiness.Data;
-using MyBusiness.Models.Product;
+﻿using MyBusiness.Models.Product;
+using MyBusiness.Services;
 using MyBusiness.Views;
 using System;
 using System.Collections.ObjectModel;
@@ -37,7 +37,7 @@ namespace MyBusiness.ViewModels
 
         public AllProductsViewModel()
         {
-            Products = new ObservableCollection<ProductModel>(ProductData.GetAllProducts());
+            Products = new ObservableCollection<ProductModel>(ProductModelService.GetAllProducts());
             EditProductCommand = new ViewModelCommand(ExecuteEditProductCommand, CanExecuteEditProductCommand);
             DeleteProductCommand = new ViewModelCommand(ExecuteDeleteProductCommand, CanExecuteDeleteProductCommand);
         }
@@ -49,8 +49,8 @@ namespace MyBusiness.ViewModels
 
         private void ExecuteDeleteProductCommand(object obj)
         {
-            ProductData.DeleteProduct(selectedProduct.Id);
-            Products = new ObservableCollection<ProductModel>(ProductData.GetAllProducts());
+            ProductModelService.DeleteProduct(selectedProduct.Id);
+            Products = new ObservableCollection<ProductModel>(ProductModelService.GetAllProducts());
         }
 
         private bool CanExecuteEditProductCommand(object obj)

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
-using MyBusiness.Data;
 using MyBusiness.Helpers;
 using MyBusiness.Models.Product;
+using MyBusiness.Services;
 using System.Windows.Input;
 
 namespace MyBusiness.ViewModels
@@ -47,7 +47,7 @@ namespace MyBusiness.ViewModels
             {
                 Product.ProductImage = ImageHelper.ConvertImageToByteArray(ImageSource);
             }
-            ProductData.AddProduct(Product);
+            ProductModelService.AddProduct(Product);
             Product = new ProductModel();
             ImageSource = "../../../Images/DefaultImage.jpg";
         }
