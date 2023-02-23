@@ -60,30 +60,14 @@
                             </Rectangle>
 
                             <TextBlock Text="{Binding Name}"
-                                   Grid.Row="1"
-                                   FontSize="14"
-                                   FontFamily="Montserrat"
-                                   FontWeight="Medium"
-                                   Foreground="{StaticResource plainTextColor1}"
-                                   VerticalAlignment="Center"
-                                   TextAlignment="Center"
-                                   TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding Price, StringFormat={}{0} грн}"
-                                   Grid.Row="2"
-                                   FontSize="14"
-                                   FontWeight="Medium"
-                                   Foreground="{StaticResource plainTextColor1}"
-                                   VerticalAlignment="Center"
-                                   TextAlignment="Center"
-                                   TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding AvailableWeight, StringFormat={}{0} кг}"
-                                   Grid.Row="3"
-                                   FontSize="14"
-                                   FontWeight="Medium"
-                                   Foreground="{StaticResource plainTextColor1}"
-                                   VerticalAlignment="Center"
-                                   TextAlignment="Center"
-                                   TextWrapping="Wrap"/>
+                                       Grid.Row="1"
+                                       Style="{StaticResource simpleText}"/>
+                            <TextBlock Text="{Binding Price, StringFormat={}{0} UAH/kg}"
+                                       Grid.Row="2"
+                                       Style="{StaticResource simpleText}"/>
+                            <TextBlock Text="{Binding AvailableWeight, StringFormat={}{0} kg}"
+                                       Grid.Row="3"
+                                       Style="{StaticResource simpleText}"/>
 
                         </Grid>
                     </Border>
@@ -115,6 +99,17 @@
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Edit product" Style="{StaticResource editButtonText}"/>
+                </StackPanel>
+
+            </Button>
+
+            <Button x:Name="addProductWeight" 
+                    Style="{StaticResource simpleButton}"
+                    Margin="5"
+                    Command="{Binding AddProductWeightCommand}">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Add Weight" Style="{StaticResource simpleButtonText}"/>
                 </StackPanel>
 
             </Button>

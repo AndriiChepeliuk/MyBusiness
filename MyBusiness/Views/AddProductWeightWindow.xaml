@@ -1,0 +1,125 @@
+﻿<Window x:Class="MyBusiness.Views.AddProductWeightWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyBusiness.Views"
+        xmlns:viewModel="clr-namespace:MyBusiness.ViewModels"
+        mc:Ignorable="d"
+        Title="AddProductWeightWindow" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None">
+
+    <Window.DataContext>
+        <viewModel:AddProductWeightViewModel/>
+    </Window.DataContext>
+
+    <Border CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="{StaticResource backColor5}"
+            Background="{StaticResource backColor3}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Grid.Row="0"
+                       Height="150"
+                       Width="150"
+                       RadiusX="5"
+                       RadiusY="5">
+
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="{Binding Product.Image}"/>
+                </Rectangle.Fill>
+
+            </Rectangle>
+
+            <TextBlock Grid.Row="1"
+                   Style="{StaticResource simpleText}"
+                   Text="{Binding Product.Name}"/>
+
+            <TextBlock Text="{Binding Product.Price, StringFormat={}Price: {0} UAH/kg}"
+                       Grid.Row="2"
+                       Style="{StaticResource simpleText}"/>
+
+            <TextBlock Text="{Binding Product.AvailableWeight, StringFormat={}Available weight: {0} kg}"
+                       Grid.Row="3"
+                       Style="{StaticResource simpleText}"/>
+            
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0,5*"/>
+                    <ColumnDefinition Width="0,2*"/>
+                    <ColumnDefinition Width="0,3*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Style="{StaticResource propertyNameLabel}">
+                    New weight =
+                </Label>
+
+                <TextBox x:Name="propertyNameTextBox"
+                     Grid.Column="1"
+                     Style="{StaticResource propertyValueTextBox}"
+                     Text="{Binding ProductWeight}">
+                </TextBox>
+
+                <TextBlock Grid.Column="2"
+                           Style="{StaticResource simpleText}"
+                           Text="kg"
+                           HorizontalAlignment="Left"/>
+
+            </Grid>
+
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0,5*"/>
+                    <ColumnDefinition Width="0,5*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="addWeight"
+                        Style="{StaticResource editButton}"
+                        Grid.Column="0"
+                        Command="{Binding AddWeightCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Add weight" Style="{StaticResource editButtonText}"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button x:Name="CancleAddWeight"
+                        Style="{StaticResource deleteButton}"
+                        Grid.Column="1"
+                        Command="{Binding CancelAddWeightCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Cancel" Style="{StaticResource editButtonText}"/>
+                    </StackPanel>
+
+                </Button>
+
+            </Grid>
+            
+        </Grid>
+
+
+
+    </Border>
+
+</Window>

@@ -64,14 +64,16 @@ namespace MyBusiness.Services
             }
         }
 
-        public static void AddProductWeight(int productId, float productWeight)
+        public static void AddProductWeight(ProductModel product, float productWeight)
         {
             using (var context = new ApplicationContext())
             {
-                var currentProduct = GetProductById(productId);
+                var currentProduct = GetProductById(product.Id);
                 if (currentProduct != null)
                 {
-                    currentProduct.AvailableWeight += productWeight;
+                    currentProduct.AvailableWeight = product.AvailableWeight += productWeight;
+                    context.Update(currentProduct);
+                    context.SaveChanges();
                 }
             }
         }
