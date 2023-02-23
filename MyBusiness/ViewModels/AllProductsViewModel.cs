@@ -34,12 +34,26 @@ namespace MyBusiness.ViewModels
 
         public ICommand EditProductCommand { get; }
         public ICommand DeleteProductCommand { get; }
+        public ICommand AddProductWeightCommand { get; }
 
         public AllProductsViewModel()
         {
             Products = new ObservableCollection<ProductModel>(ProductModelService.GetAllProducts());
             EditProductCommand = new ViewModelCommand(ExecuteEditProductCommand, CanExecuteEditProductCommand);
             DeleteProductCommand = new ViewModelCommand(ExecuteDeleteProductCommand, CanExecuteDeleteProductCommand);
+            AddProductWeightCommand = new ViewModelCommand(ExecuteAddProductWeightCommand, CanExecuteAddProductWeightCommand);
+        }
+
+        private bool CanExecuteAddProductWeightCommand(object obj)
+        {
+            return selectedProduct != null;
+        }
+
+        private void ExecuteAddProductWeightCommand(object obj)
+        {
+            AddProductWeightViewModel addProductWeightViewModel = new AddProductWeightViewModel(SelectedProduct);
+            var addWeightWindow = new AddProductWeightWindow() { DataContext = addProductWeightViewModel };
+            addWeightWindow.ShowDialog();
         }
 
         private bool CanExecuteDeleteProductCommand(object obj)
