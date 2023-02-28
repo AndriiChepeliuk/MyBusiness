@@ -1,4 +1,8 @@
-﻿using MyBusiness.Models.Customer;
+﻿using MyBusiness.Models.CartsItem;
+using MyBusiness.Models.Customer;
+using System;
+using System.Collections.ObjectModel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace MyBusiness.Models.Cart
 {
@@ -6,9 +10,11 @@ namespace MyBusiness.Models.Cart
     {
         private int customerId;
         private CustomerModel? customer;
+        private ObservableCollection<CartsItemModel> cartsItems;
         private float totalCartWeight;
         private float totalCartCost;
         private bool isOpen;
+        private DateTime dateOfCreation;
 
         public int Id { get; private set; }
         public int CustomerId
@@ -27,6 +33,15 @@ namespace MyBusiness.Models.Cart
             {
                 customer = value;
                 OnPropertyChanged(nameof(Customer));
+            }
+        }
+        public ObservableCollection<CartsItemModel> CartsItems
+        {
+            get { return cartsItems; }
+            set
+            {
+                cartsItems = value;
+                OnPropertyChanged(nameof(CartsItems));
             }
         }
         public float TotalCartWeight
@@ -56,5 +71,15 @@ namespace MyBusiness.Models.Cart
                 OnPropertyChanged(nameof(IsOpen));
             }
         }
+        public DateTime DateOfCreation
+        {
+            get { return dateOfCreation; }
+            set
+            {
+                dateOfCreation = value;
+                OnPropertyChanged(nameof(DateOfCreation));
+            }
+        }
+
     }
 }

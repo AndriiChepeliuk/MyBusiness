@@ -37,6 +37,5 @@ namespace MyBusiness.Models.Customer
                 OnPropertyChanged(nameof(Carts));
             }
         }
-
     }
 }
