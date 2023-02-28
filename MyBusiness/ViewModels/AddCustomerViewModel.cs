@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using MyBusiness.Helpers;
 using MyBusiness.Models.Customer;
+using MyBusiness.Services;
 using System;
 using System.Windows.Input;
 
@@ -35,6 +36,7 @@ namespace MyBusiness.ViewModels
 
         public AddCustomerViewModel()
         {
+            Customer = new CustomerModel();
             ImageSource = "../../../Images/DefaultImage.jpg";
             ChoosePictureCommand = new ViewModelCommand(ExecuteChoosePictureCommand);
             AddCustomerCommand = new ViewModelCommand(ExecuteAddCustomerCommand);
@@ -42,8 +44,10 @@ namespace MyBusiness.ViewModels
 
         private void ExecuteAddCustomerCommand(object obj)
         {
-            Customer = new CustomerModel();
             Customer.AvatarByteCode = ImageHelper.ConvertImageToByteArray(ImageSource);
+            CustomerModelService.AddCustomer(Customer);
+            Customer = new CustomerModel();
+            ImageSource = "../../../Images/DefaultImage.jpg";
         }
 
         private void ExecuteChoosePictureCommand(object obj)
