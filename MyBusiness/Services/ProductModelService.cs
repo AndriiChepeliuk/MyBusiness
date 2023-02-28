@@ -1,5 +1,7 @@
 ﻿using MyBusiness.Data;
+using MyBusiness.Models.AddingWeightItem;
 using MyBusiness.Models.Product;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -72,6 +74,13 @@ namespace MyBusiness.Services
                 if (currentProduct != null)
                 {
                     currentProduct.AvailableWeight = product.AvailableWeight += productWeight;
+
+                    var AddingWeightItem = new AddingWeightItemModel();
+                    AddingWeightItem.Weight = productWeight;
+                    AddingWeightItem.Product = currentProduct;
+                    AddingWeightItem.Date = DateTime.Now;
+                    context.AddingWeightItems.Add(AddingWeightItem);
+
                     context.Update(currentProduct);
                     context.SaveChanges();
                 }
