@@ -1,4 +1,7 @@
-﻿using System.Windows.Media.Imaging;
+﻿using MyBusiness.Models.AddingWeightItem;
+using MyBusiness.Models.CartsItem;
+using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
 
 namespace MyBusiness.Models.Product
 {
@@ -10,8 +13,10 @@ namespace MyBusiness.Models.Product
         private float reservedWeight;
         private float price;
         private BitmapImage image;
+        private ObservableCollection<CartsItemModel> cartsItems;
+        private ObservableCollection<AddingWeightItemModel> addingWeightItems;
 
-        public int Id { get; set; }
+        public int Id { get; private set; }
         public string Name 
         { 
             get { return name; } 
@@ -65,6 +70,24 @@ namespace MyBusiness.Models.Product
             {
                 image = value;
                 OnPropertyChanged(nameof(Image));
+            }
+        }
+        public ObservableCollection<CartsItemModel> CartsItems
+        {
+            get { return cartsItems; }
+            set
+            {
+                cartsItems = value;
+                OnPropertyChanged(nameof(CartsItems));
+            }
+        }
+        public ObservableCollection<AddingWeightItemModel> AddingWeightItems
+        {
+            get { return addingWeightItems; }
+            set
+            {
+                addingWeightItems = value;
+                OnPropertyChanged(nameof(AddingWeightItems));
             }
         }
     }
