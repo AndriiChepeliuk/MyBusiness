@@ -1,5 +1,6 @@
 ﻿using MyBusiness.Models.Cart;
 using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
 
 namespace MyBusiness.Models.Customer
 {
@@ -7,6 +8,7 @@ namespace MyBusiness.Models.Customer
     {
         private string? name;
         private string? mobileNumber;
+        private BitmapImage avatar;
         private ObservableCollection<CartModel> carts;// = new ObservableCollection<CartModel>();
 
         public int Id { get; private set; }
@@ -26,6 +28,16 @@ namespace MyBusiness.Models.Customer
             {
                 mobileNumber = value;
                 OnPropertyChanged(nameof(MobileNumber));
+            }
+        }
+        public byte[]? AvatarByteCode { get; set; }
+        public BitmapImage Avatar
+        {
+            get { return avatar; }
+            set
+            {
+                avatar = value;
+                OnPropertyChanged(nameof(Avatar));
             }
         }
         public ObservableCollection<CartModel> Carts

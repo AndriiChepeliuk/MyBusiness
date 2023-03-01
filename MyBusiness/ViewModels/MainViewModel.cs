@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using System;
 using System.Windows.Input;
 
 namespace MyBusiness.ViewModels
@@ -50,6 +51,7 @@ namespace MyBusiness.ViewModels
         public ICommand ShowCreateCartViewCommand { get; }
         public ICommand ShowSuppliesViewCommand { get; }
         public ICommand ShowAddProductViewCommand { get; }
+        public ICommand ShowAddCustomerViewCommand { get; }
 
         public MainViewModel()
         {
@@ -58,9 +60,17 @@ namespace MyBusiness.ViewModels
             ShowCreateCartViewCommand = new ViewModelCommand(ExecuteShowCreateCartViewCommand);
             ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
             ShowAddProductViewCommand = new ViewModelCommand(ExecuteShowAddProductViewCommand);
+            ShowAddCustomerViewCommand = new ViewModelCommand(ExecuteShowAddCustomerViewCommand);
 
             //--> Default view
             ExecuteShowAllProductsViewCommand(null);
+        }
+
+        private void ExecuteShowAddCustomerViewCommand(object obj)
+        {
+            CurrentChildView = new AddCustomerViewModel();
+            Caption = "Add customer";
+            Icon = IconChar.UserPlus;
         }
 
         private void ExecuteShowSuppliesViewCommand(object obj)

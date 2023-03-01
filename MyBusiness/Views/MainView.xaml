@@ -36,6 +36,10 @@
             <local:AddProductView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:AddCustomerViewModel}">
+            <local:AddCustomerView/>
+        </DataTemplate>
+
     </Window.Resources>
 
     <Border CornerRadius="10"
@@ -120,11 +124,12 @@
                         </RadioButton>
                         
                         <RadioButton Style="{StaticResource menuButton}"
-                                     Tag="{StaticResource color5}">
+                                     Tag="{StaticResource color5}"
+                                     Command="{Binding ShowAddCustomerViewCommand}">
 
                             <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="Image" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Default" Style="{StaticResource menuButtonText}"/>
+                                <fa:IconImage Icon="UserPlus" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Add customer" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
                         

@@ -11,6 +11,8 @@ namespace MyBusiness.Models.Customer
                 .HasMany(c => c.Carts)
                 .WithOne(c => c.Customer)
                 .HasForeignKey(c => c.CustomerId);
+            builder
+                .Ignore(c => c.Avatar);
         }
     }
 }
