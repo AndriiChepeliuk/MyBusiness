@@ -28,8 +28,4 @@
     <Resource Include="Images\Supplies.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\DB\" />
-  </ItemGroup>
-
 </Project>

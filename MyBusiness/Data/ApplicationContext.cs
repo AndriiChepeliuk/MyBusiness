@@ -22,7 +22,7 @@ namespace UmbrellaBiz.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=../../../Data/DB/UmbrellaDB.db");
+            optionsBuilder.UseSqlite("Data Source=../../../Data/UmbrellaDB.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
