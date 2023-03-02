@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyBusiness.Models.Cart
+namespace UmbrellaBiz.Models.Cart
 {
     public class CartConfiguration : IEntityTypeConfiguration<CartModel>
     {

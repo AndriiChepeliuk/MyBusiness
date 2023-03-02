@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MyBusiness.Models.Product
+namespace UmbrellaBiz.Models.Product
 {
     public class ProductConfiguration : IEntityTypeConfiguration<ProductModel>
     {

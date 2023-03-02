@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace MyBusiness.Helpers
+namespace UmbrellaBiz.Helpers
 {
     public class ImageHelper
     {

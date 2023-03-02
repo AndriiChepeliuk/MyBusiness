@@ -1,10 +1,10 @@
 ﻿using Microsoft.Win32;
-using MyBusiness.Helpers;
-using MyBusiness.Models.Product;
-using MyBusiness.Services;
+using UmbrellaBiz.Helpers;
+using UmbrellaBiz.Models.Product;
+using UmbrellaBiz.Services;
 using System.Windows.Input;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public class AddProductViewModel : ViewModelBase
     {

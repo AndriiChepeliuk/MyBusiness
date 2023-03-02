@@ -3,7 +3,7 @@ using System;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace MyBusiness.Views
+namespace UmbrellaBiz.Views
 {
     /// <summary>
     /// Interaction logic for MainView.xaml

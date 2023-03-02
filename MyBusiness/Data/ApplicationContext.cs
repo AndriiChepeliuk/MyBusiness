@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyBusiness.Models.AddingWeightItem;
-using MyBusiness.Models.Cart;
-using MyBusiness.Models.CartsItem;
-using MyBusiness.Models.Customer;
-using MyBusiness.Models.Product;
+using UmbrellaBiz.Models.AddingWeightItem;
+using UmbrellaBiz.Models.Cart;
+using UmbrellaBiz.Models.CartsItem;
+using UmbrellaBiz.Models.Customer;
+using UmbrellaBiz.Models.Product;
 
-namespace MyBusiness.Data
+namespace UmbrellaBiz.Data
 {
     public class ApplicationContext : DbContext
     {

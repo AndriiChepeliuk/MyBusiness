@@ -1,10 +1,10 @@
-﻿using MyBusiness.Data;
-using MyBusiness.Models.Product;
+﻿using UmbrellaBiz.Data;
+using UmbrellaBiz.Models.Product;
 using System.Drawing;
 using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public class CreateCartViewModel : ViewModelBase
     {

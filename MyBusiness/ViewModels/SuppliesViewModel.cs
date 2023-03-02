@@ -1,4 +1,4 @@
-﻿namespace MyBusiness.ViewModels
+﻿namespace UmbrellaBiz.ViewModels
 {
     public class SuppliesViewModel : ViewModelBase
     {

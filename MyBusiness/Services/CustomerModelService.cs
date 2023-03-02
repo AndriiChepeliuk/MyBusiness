@@ -1,7 +1,7 @@
-﻿using MyBusiness.Data;
-using MyBusiness.Models.Customer;
+﻿using UmbrellaBiz.Data;
+using UmbrellaBiz.Models.Customer;
 
-namespace MyBusiness.Services
+namespace UmbrellaBiz.Services
 {
     public class CustomerModelService
     {

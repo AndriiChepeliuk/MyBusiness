@@ -1,11 +1,11 @@
-﻿using MyBusiness.Models.Product;
-using MyBusiness.Services;
-using MyBusiness.Views;
+﻿using UmbrellaBiz.Models.Product;
+using UmbrellaBiz.Services;
+using UmbrellaBiz.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public class AllProductsViewModel : ViewModelBase
     {

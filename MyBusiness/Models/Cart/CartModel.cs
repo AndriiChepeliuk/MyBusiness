@@ -1,10 +1,10 @@
-﻿using MyBusiness.Models.CartsItem;
-using MyBusiness.Models.Customer;
+﻿using UmbrellaBiz.Models.CartsItem;
+using UmbrellaBiz.Models.Customer;
 using System;
 using System.Collections.ObjectModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
-namespace MyBusiness.Models.Cart
+namespace UmbrellaBiz.Models.Cart
 {
     public class CartModel : ModelBase
     {

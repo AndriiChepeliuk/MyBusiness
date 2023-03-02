@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace MyBusiness.Models.Customer
+namespace UmbrellaBiz.Models.Customer
 {
     public class CustomerConfiguration : IEntityTypeConfiguration<CustomerModel>
     {

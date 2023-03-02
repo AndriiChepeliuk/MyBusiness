@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MyBusiness.Views
+namespace UmbrellaBiz.Views
 {
     /// <summary>
     /// Interaction logic for EditProductViewWindow.xaml
