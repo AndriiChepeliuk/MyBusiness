@@ -134,11 +134,12 @@
                         </RadioButton>
                         
                         <RadioButton Style="{StaticResource menuButton}"
-                                     Tag="{StaticResource color6}">
+                                     Tag="{StaticResource color6}"
+                                     Command="{Binding ShowAllCustomersViewCommand}">
 
                             <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="Image" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Default" Style="{StaticResource menuButtonText}"/>
+                                <fa:IconImage Icon="Users" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
                         
