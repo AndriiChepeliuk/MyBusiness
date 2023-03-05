@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using UmbrellaBiz.Models.Customer;
+using UmbrellaBiz.Services;
 
 namespace UmbrellaBiz.ViewModels
 {
@@ -26,6 +27,12 @@ namespace UmbrellaBiz.ViewModels
                 OnPropertyChanged(nameof(Customers));
             }
         }
+
+        public AllCustomersViewModel()
+        {
+            Customers = new ObservableCollection<CustomerModel>(CustomerModelService.GetAllCustomers());
+        }
+
 
     }
 }
