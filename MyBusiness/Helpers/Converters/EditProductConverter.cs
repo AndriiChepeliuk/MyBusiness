@@ -1,9 +1,9 @@
-﻿using MyBusiness.Models.Product;
+﻿using UmbrellaBiz.Models.Product;
 using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace MyBusiness.Helpers.Converters
+namespace UmbrellaBiz.Helpers.Converters
 {
     public class EditProductConverter : IMultiValueConverter
     {

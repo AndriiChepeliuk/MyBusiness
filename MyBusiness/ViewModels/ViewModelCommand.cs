@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public class ViewModelCommand : ICommand
     {

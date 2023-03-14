@@ -1,10 +1,10 @@
-﻿using MyBusiness.Models.Product;
-using MyBusiness.Services;
+﻿using UmbrellaBiz.Models.Product;
+using UmbrellaBiz.Services;
 using System;
 using System.Windows;
 using System.Windows.Input;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public class AddProductWeightViewModel : ViewModelBase
     {

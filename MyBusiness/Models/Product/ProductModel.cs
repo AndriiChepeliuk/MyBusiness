@@ -1,9 +1,9 @@
-﻿using MyBusiness.Models.AddingWeightItem;
-using MyBusiness.Models.CartsItem;
+﻿using UmbrellaBiz.Models.AddingWeightItem;
+using UmbrellaBiz.Models.CartsItem;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 
-namespace MyBusiness.Models.Product
+namespace UmbrellaBiz.Models.Product
 {
     public class ProductModel : ModelBase
     {

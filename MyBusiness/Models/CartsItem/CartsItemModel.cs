@@ -1,8 +1,8 @@
-﻿using MyBusiness.Models.Cart;
-using MyBusiness.Models.Product;
+﻿using UmbrellaBiz.Models.Cart;
+using UmbrellaBiz.Models.Product;
 using System;
 
-namespace MyBusiness.Models.CartsItem
+namespace UmbrellaBiz.Models.CartsItem
 {
     public class CartsItemModel : ModelBase
     {

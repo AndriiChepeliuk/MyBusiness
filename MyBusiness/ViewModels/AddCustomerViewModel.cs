@@ -1,11 +1,11 @@
 ﻿using Microsoft.Win32;
-using MyBusiness.Helpers;
-using MyBusiness.Models.Customer;
-using MyBusiness.Services;
+using UmbrellaBiz.Helpers;
+using UmbrellaBiz.Models.Customer;
+using UmbrellaBiz.Services;
 using System;
 using System.Windows.Input;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public class AddCustomerViewModel : ViewModelBase
     {

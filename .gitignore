@@ -364,3 +364,6 @@ FodyWeavers.xsd
 /MyBusiness/Data/DB/UmbrellaDB.db
 /MyBusiness/Data/DB/UmbrellaDB.db-shm
 /MyBusiness/Data/DB/UmbrellaDB.db-wal
+/MyBusiness/Data/UmbrellaDB.db
+/MyBusiness/Data/UmbrellaDB.db-shm
+/MyBusiness/Data/UmbrellaDB.db-wal

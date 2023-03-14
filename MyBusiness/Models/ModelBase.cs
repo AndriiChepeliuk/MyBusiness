@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace MyBusiness.Models
+namespace UmbrellaBiz.Models
 {
     public class ModelBase : INotifyPropertyChanged, ICloneable
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Input;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
@@ -52,6 +52,7 @@ namespace MyBusiness.ViewModels
         public ICommand ShowSuppliesViewCommand { get; }
         public ICommand ShowAddProductViewCommand { get; }
         public ICommand ShowAddCustomerViewCommand { get; }
+        public ICommand ShowAllCustomersViewCommand { get; }
 
         public MainViewModel()
         {
@@ -61,9 +62,17 @@ namespace MyBusiness.ViewModels
             ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
             ShowAddProductViewCommand = new ViewModelCommand(ExecuteShowAddProductViewCommand);
             ShowAddCustomerViewCommand = new ViewModelCommand(ExecuteShowAddCustomerViewCommand);
+            ShowAllCustomersViewCommand = new ViewModelCommand(ExecuteShowAllCustomersViewCommand);
 
             //--> Default view
             ExecuteShowAllProductsViewCommand(null);
+        }
+
+        private void ExecuteShowAllCustomersViewCommand(object obj)
+        {
+            CurrentChildView = new AllCustomersViewModel();
+            Caption = "Customers";
+            Icon = IconChar.Users;
         }
 
         private void ExecuteShowAddCustomerViewCommand(object obj)
@@ -79,6 +88,7 @@ namespace MyBusiness.ViewModels
             Caption = "Supplies";
             Icon = IconChar.CubesStacked;
         }
+
         private void ExecuteShowCreateCartViewCommand(object obj)
         {
             CurrentChildView = new CreateCartViewModel();

@@ -1,13 +1,14 @@
-﻿using MyBusiness.Data;
-using MyBusiness.Models.AddingWeightItem;
-using MyBusiness.Models.Product;
+﻿using Microsoft.EntityFrameworkCore;
+using UmbrellaBiz.Data;
+using UmbrellaBiz.Models.AddingWeightItem;
+using UmbrellaBiz.Models.Product;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
 
-namespace MyBusiness.Services
+namespace UmbrellaBiz.Services
 {
     public class ProductModelService
     {
@@ -24,7 +25,7 @@ namespace MyBusiness.Services
         {
             using (var context = new ApplicationContext())
             {
-                var products = context.Products.OrderBy(p => p.Category).ToList();
+                var products = context.Products.OrderBy(p => p.Category).AsNoTracking().ToList();
 
                 foreach (var product in products)
                 {

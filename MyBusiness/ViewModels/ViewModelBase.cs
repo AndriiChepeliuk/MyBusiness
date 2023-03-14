@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace MyBusiness.ViewModels
+namespace UmbrellaBiz.ViewModels
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {

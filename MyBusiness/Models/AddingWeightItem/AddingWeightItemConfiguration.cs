@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace MyBusiness.Models.AddingWeightItem
+namespace UmbrellaBiz.Models.AddingWeightItem
 {
     public class AddingWeightItemConfiguration : IEntityTypeConfiguration<AddingWeightItemModel>
     {

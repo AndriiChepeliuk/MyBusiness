@@ -1,8 +1,8 @@
-﻿using MyBusiness.Models.Customer;
-using MyBusiness.Models.Product;
+﻿using UmbrellaBiz.Models.Customer;
+using UmbrellaBiz.Models.Product;
 using System;
 
-namespace MyBusiness.Models.AddingWeightItem
+namespace UmbrellaBiz.Models.AddingWeightItem
 {
     public class AddingWeightItemModel : ModelBase
     {

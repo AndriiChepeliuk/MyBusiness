@@ -1,8 +1,8 @@
-﻿using MyBusiness.Models.Cart;
+﻿using UmbrellaBiz.Models.Cart;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
 
-namespace MyBusiness.Models.Customer
+namespace UmbrellaBiz.Models.Customer
 {
     public class CustomerModel : ModelBase
     {

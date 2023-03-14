@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MyBusiness.Views
+namespace UmbrellaBiz.Views
 {
     /// <summary>
     /// Interaction logic for AddProductWeightWindow.xaml
