@@ -48,7 +48,7 @@ namespace UmbrellaBiz.ViewModels
         }
 
         public ICommand ShowAllProductsViewCommand { get; }
-        public ICommand ShowCreateCartViewCommand { get; }
+        public ICommand ShowCartsViewCommand { get; }
         public ICommand ShowSuppliesViewCommand { get; }
         public ICommand ShowAddProductViewCommand { get; }
         public ICommand ShowAddCustomerViewCommand { get; }
@@ -58,7 +58,7 @@ namespace UmbrellaBiz.ViewModels
         {
             //--> Initialize commands
             ShowAllProductsViewCommand = new ViewModelCommand(ExecuteShowAllProductsViewCommand);
-            ShowCreateCartViewCommand = new ViewModelCommand(ExecuteShowCreateCartViewCommand);
+            ShowCartsViewCommand = new ViewModelCommand(ExecuteShowCartsViewCommand);
             ShowSuppliesViewCommand = new ViewModelCommand(ExecuteShowSuppliesViewCommand);
             ShowAddProductViewCommand = new ViewModelCommand(ExecuteShowAddProductViewCommand);
             ShowAddCustomerViewCommand = new ViewModelCommand(ExecuteShowAddCustomerViewCommand);
@@ -89,10 +89,10 @@ namespace UmbrellaBiz.ViewModels
             Icon = IconChar.CubesStacked;
         }
 
-        private void ExecuteShowCreateCartViewCommand(object obj)
+        private void ExecuteShowCartsViewCommand(object obj)
         {
-            CurrentChildView = new CreateCartViewModel();
-            Caption = "Create cart";
+            CurrentChildView = new CartsViewModel();
+            Caption = "Carts";
             Icon = IconChar.CartShopping;
         }
 

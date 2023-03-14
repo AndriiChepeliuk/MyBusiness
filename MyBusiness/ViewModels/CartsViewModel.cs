@@ -6,7 +6,7 @@ using System.Windows.Media.Imaging;
 
 namespace UmbrellaBiz.ViewModels
 {
-    public class CreateCartViewModel : ViewModelBase
+    public class CartsViewModel : ViewModelBase
     {
         //public ProductModel Product { get; set; }
         //public BitmapImage BitmapImageImage { get; set; }
