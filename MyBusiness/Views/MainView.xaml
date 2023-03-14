@@ -24,7 +24,7 @@
             <local:AllProductsView/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type viewModel:CreateCartViewModel}">
+        <DataTemplate DataType="{x:Type viewModel:CartsViewModel}">
             <local:CreateCartView/>
         </DataTemplate>
 
@@ -96,14 +96,24 @@
                                 <TextBlock Text="All products" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
-                        
+
+                        <RadioButton Style="{StaticResource menuButton}"
+                                     Tag="{StaticResource color6}"
+                                     Command="{Binding ShowAllCustomersViewCommand}">
+
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Users" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+
                         <RadioButton Style="{StaticResource menuButton}"
                                      Tag="{StaticResource color2}"
-                                     Command="{Binding ShowCreateCartViewCommand}">
+                                     Command="{Binding ShowCartsViewCommand}">
 
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CartShopping" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Create cart" Style="{StaticResource menuButtonText}"/>
+                                <TextBlock Text="Carts" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
                         
@@ -134,16 +144,6 @@
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="UserPlus" Style="{StaticResource menuButtonIcon}"/>
                                 <TextBlock Text="Add customer" Style="{StaticResource menuButtonText}"/>
-                            </StackPanel>
-                        </RadioButton>
-                        
-                        <RadioButton Style="{StaticResource menuButton}"
-                                     Tag="{StaticResource color6}"
-                                     Command="{Binding ShowAllCustomersViewCommand}">
-
-                            <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="Users" Style="{StaticResource menuButtonIcon}"/>
-                                <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </RadioButton>
                         
