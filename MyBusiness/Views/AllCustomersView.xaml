@@ -90,7 +90,8 @@
 
             <Button x:Name="addProductWeight" 
                     Style="{StaticResource complexButton}"
-                    Margin="5">
+                    Margin="5"
+                    Command="{Binding AddNewCartForSelectedCustomerCommand}">
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Add Cart" Style="{StaticResource complexButtonText}"/>
