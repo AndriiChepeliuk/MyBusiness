@@ -81,5 +81,24 @@
 
             </DataGrid.Columns>
         </DataGrid>
+
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    FlowDirection="RightToLeft"
+                    Margin="5 5 12 5">
+
+            <Button x:Name="addProductWeight" 
+                    Style="{StaticResource complexButton}"
+                    Margin="5">
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Add Cart" Style="{StaticResource complexButtonText}"/>
+                    <fa:IconImage Icon="CartPlus" Style="{StaticResource complexButtonIcon}"/>
+                </StackPanel>
+
+            </Button>
+
+        </StackPanel>
     </Grid>
 </UserControl>

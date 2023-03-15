@@ -10,7 +10,7 @@
 
     <!--Button Colors-->
     <SolidColorBrush x:Key="btnControlWindowColor" Color="#464646"/>
-    <SolidColorBrush x:Key="btnControlWindowColorIsMouseOver" Color="#545454"/>
+    <SolidColorBrush x:Key="btnControlWindowColorIsMouseOver" Color="#636363"/>
     <SolidColorBrush x:Key="btnEditColor" Color="#018201"/>
     <SolidColorBrush x:Key="btnEditColor2" Color="#01C801"/>
     <SolidColorBrush x:Key="btnEditColorIsMouseOver" Color="#01A001"/>
