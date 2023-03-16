@@ -97,7 +97,13 @@
                 <DataGrid x:Name="cartItemsDataGrid"
                           ItemsSource="{Binding Cart.CartsItems}"
                           Grid.Row="1"
-                          Grid.Column="0" Grid.ColumnSpan="6">
+                          Grid.Column="0" Grid.ColumnSpan="6"
+                          Margin="15"
+                          Style="{DynamicResource cartItemsDataGridStyle}"
+                          CellStyle="{DynamicResource cartItemsDataGridCellStyle}"
+                          RowStyle="{DynamicResource cartItemsDataGridRowStyle}"
+                          ColumnHeaderStyle="{DynamicResource cartItemsDataGridColumnHeaderStyle}"
+                          SelectedItem="{Binding SelectedCustomer}">
 
                     <DataGrid.Columns>
 
