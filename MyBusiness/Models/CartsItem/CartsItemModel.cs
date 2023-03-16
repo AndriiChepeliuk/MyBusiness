@@ -1,6 +1,5 @@
 ﻿using UmbrellaBiz.Models.Cart;
 using UmbrellaBiz.Models.Product;
-using System;
 
 namespace UmbrellaBiz.Models.CartsItem
 {

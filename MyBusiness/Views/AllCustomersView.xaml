@@ -88,7 +88,7 @@
                     FlowDirection="RightToLeft"
                     Margin="5 5 12 5">
 
-            <Button x:Name="addProductWeight" 
+            <Button x:Name="addCart" 
                     Style="{StaticResource complexButton}"
                     Margin="5"
                     Command="{Binding AddNewCartForSelectedCustomerCommand}">

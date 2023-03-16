@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UmbrellaBiz.Views"
         xmlns:viewModel="clr-namespace:UmbrellaBiz.ViewModels"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         Title="AddNewCartViewWindow" Height="650" Width="1200"
         WindowStartupLocation="CenterScreen"
@@ -26,6 +27,107 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Rectangle Height="50"
+                               Width="50"
+                               RadiusX="25"
+                               RadiusY="25">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{Binding Customer.Avatar}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </StackPanel>
+
+                <TextBlock Text="{Binding Customer.Name, StringFormat={}{0}`s cart}"
+                           Grid.Row="0"
+                           Grid.Column="1" Grid.ColumnSpan="2"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left">
+                    
+                </TextBlock>
+
+                <TextBlock Text="{Binding Cart.TotalCartWeight, StringFormat={}Total weight: {0} kg}"
+                           Grid.Row="0"
+                           Grid.Column="3"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left">
+
+                </TextBlock>
+
+                <TextBlock Text="{Binding Cart.TotalCartCost, StringFormat={}Total cost: {0} UAH}"
+                           Grid.Row="0"
+                           Grid.Column="4"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left">
+
+                </TextBlock>
+
+                <Button x:Name="addCartsItem" 
+                        Grid.Row="0"
+                        Grid.Column="5"
+                        Style="{StaticResource simpleButton}"
+                        Margin="5">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Add product" Style="{StaticResource simpleButtonText}"/>
+                    </StackPanel>
+
+                </Button>
+
+                <DataGrid x:Name="cartItemsDataGrid"
+                          ItemsSource="{Binding Cart.CartsItems}"
+                          Grid.Row="1"
+                          Grid.Column="0" Grid.ColumnSpan="6">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Header="Picture"
+                                                IsReadOnly="True"
+                                                Width="100">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Grid.Row="0"
+                                                   Height="50"
+                                                   Width="50"
+                                                   RadiusX="25"
+                                                   RadiusY="25">
+                                            <Rectangle.Fill>
+                                                <ImageBrush ImageSource="{Binding Product.Image}"/>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            
+                        </DataGridTemplateColumn>
+                        
+                    </DataGrid.Columns>
+                    
+                </DataGrid>
+                
+            </Grid>
 
             <StackPanel Grid.Row="1"
                     VerticalAlignment="Center"

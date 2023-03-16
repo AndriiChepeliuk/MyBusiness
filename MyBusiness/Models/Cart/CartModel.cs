@@ -2,7 +2,6 @@
 using UmbrellaBiz.Models.Customer;
 using System;
 using System.Collections.ObjectModel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace UmbrellaBiz.Models.Cart
 {
@@ -10,7 +9,7 @@ namespace UmbrellaBiz.Models.Cart
     {
         private int customerId;
         private CustomerModel? customer;
-        private ObservableCollection<CartsItemModel> cartsItems;
+        private ObservableCollection<CartsItemModel> cartsItems = new ObservableCollection<CartsItemModel>();
         private float totalCartWeight;
         private float totalCartCost;
         private bool isOpen;
