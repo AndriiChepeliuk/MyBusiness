@@ -40,6 +40,29 @@ namespace UmbrellaBiz.Services
             }
         }
 
+        public static List<ProductModel> GetAvailableProducts()
+        {
+            using (var context = new ApplicationContext())
+            {
+                var products = context.Products
+                    .Where(p => p.AvailableWeight > 0)
+                    .OrderBy(p => p.Category)
+                    .AsNoTracking()
+                    .ToList();
+
+                foreach (var product in products)
+                {
+                    MemoryStream memoryStream = new MemoryStream(product.ProductImage);
+                    product.Image = new BitmapImage();
+                    product.Image.BeginInit();
+                    product.Image.StreamSource = memoryStream;
+                    product.Image.EndInit();
+                }
+
+                return products;
+            }
+        }
+
         public static ProductModel GetProductById(int id)
         {
             using (var context = new ApplicationContext())

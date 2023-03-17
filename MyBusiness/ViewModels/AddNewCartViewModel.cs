@@ -1,11 +1,15 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using UmbrellaBiz.Models.Cart;
+using UmbrellaBiz.Models.CartsItem;
 using UmbrellaBiz.Models.Customer;
+using UmbrellaBiz.ViewModels.AuxiliaryViewModels;
+using UmbrellaBiz.Views.AuxiliaryWindows;
 
 namespace UmbrellaBiz.ViewModels
 {
-    class AddNewCartViewModel : ViewModelBase
+    public class AddNewCartViewModel : ViewModelBase
     {
         private CartModel _cart;
         private CustomerModel _customer;
@@ -30,6 +34,7 @@ namespace UmbrellaBiz.ViewModels
         }
 
         public ICommand CancelAddNewCartCommand { get; }
+        public ICommand AddProductToCartCommand { get; }
 
         public AddNewCartViewModel() : this(new CustomerModel()) { }
         public AddNewCartViewModel(CustomerModel selectedCustomer)
@@ -37,12 +42,26 @@ namespace UmbrellaBiz.ViewModels
             _customer = selectedCustomer;
             _cart = new CartModel();
             CancelAddNewCartCommand = new ViewModelCommand(ExecuteCancelAddNewCartCommand);
+            AddProductToCartCommand = new ViewModelCommand(ExecuteAddProductToCartCommand);
+        }
+
+        private void ExecuteAddProductToCartCommand(object obj)
+        {
+            Cart.CartsItems.Add(AddCartItem());
         }
 
         private void ExecuteCancelAddNewCartCommand(object obj)
         {
             var wind = (Window)obj;
             wind.Close();
+        }
+
+        private CartsItemModel AddCartItem()
+        {
+            var allAvailableProductsViewModel = new AllAvailableProductsViewModel();
+            var allAvailableProductsWindow = new AllAvailableProductsWindow() { DataContext = allAvailableProductsViewModel };
+            allAvailableProductsWindow.ShowDialog();
+            return new CartsItemModel();
         }
     }
 }

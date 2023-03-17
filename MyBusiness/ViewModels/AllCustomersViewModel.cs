@@ -48,7 +48,7 @@ namespace UmbrellaBiz.ViewModels
         {
             var addNewCartViewModel = new AddNewCartViewModel(selectedCustomer);
             var addNewCartWindow = new AddNewCartViewWindow() { DataContext = addNewCartViewModel };
-            addNewCartWindow.Show();
+            addNewCartWindow.ShowDialog();
         }
     }
 }

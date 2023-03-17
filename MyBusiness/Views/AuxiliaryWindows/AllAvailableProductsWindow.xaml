@@ -1,0 +1,110 @@
+﻿<Window x:Class="UmbrellaBiz.Views.AuxiliaryWindows.AllAvailableProductsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UmbrellaBiz.Views.AuxiliaryWindows"
+        xmlns:viewModel="clr-namespace:UmbrellaBiz.ViewModels.AuxiliaryViewModels"
+        mc:Ignorable="d"
+        Title="AllAvailableProductsWindow" Height="650" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None">
+
+    <Window.DataContext>
+        <viewModel:AllAvailableProductsViewModel/>
+    </Window.DataContext>
+
+    <Border CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="{StaticResource backColor5}"
+            Background="{StaticResource backColor3}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <ListView Name="LViewProducts"
+                      Grid.Row="0"
+                      Margin="10"
+                      ItemsSource="{Binding AvailableProducts}"
+                      SelectedItem="{Binding SelectedProduct}"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      HorizontalContentAlignment="Center"
+                      Background="Transparent"
+                      BorderBrush="Transparent">
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="{StaticResource backColor1}"
+                            BorderThickness="1"
+                            Margin="5"
+                            CornerRadius="10">
+
+                            <Grid Margin="20" Width="200">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="150"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+
+                                <Rectangle Grid.Row="0"
+                                       Height="150"
+                                       Width="150"
+                                       RadiusX="5"
+                                       RadiusY="5">
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="{Binding Image}"/>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+
+                                <TextBlock Text="{Binding Name}"
+                                       Grid.Row="1"
+                                       Style="{StaticResource simpleText}"/>
+                                <TextBlock Text="{Binding Price, StringFormat={}{0} UAH/kg}"
+                                       Grid.Row="2"
+                                       Style="{StaticResource simpleText}"/>
+                                <TextBlock Text="{Binding AvailableWeight, StringFormat={}{0} kg}"
+                                       Grid.Row="3"
+                                       Style="{StaticResource simpleText}"/>
+
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    FlowDirection="RightToLeft"
+                    Margin="5">
+
+                <Button x:Name="cancelButton" 
+                        Style="{StaticResource deleteButton}"
+                        Margin="5"
+                        Command="{Binding CancelCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Cancel" Style="{StaticResource deleteButtonText}"/>
+                    </StackPanel>
+
+                </Button>
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

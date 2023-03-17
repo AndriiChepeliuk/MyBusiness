@@ -86,7 +86,8 @@
                         Grid.Row="0"
                         Grid.Column="5"
                         Style="{StaticResource simpleButton}"
-                        Margin="5">
+                        Margin="5"
+                        Command="{Binding AddProductToCartCommand}">
 
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Add product" Style="{StaticResource simpleButtonText}"/>
