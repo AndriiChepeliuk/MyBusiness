@@ -1,7 +1,6 @@
 ﻿using UmbrellaBiz.Models.Product;
 using UmbrellaBiz.Services;
 using UmbrellaBiz.Views;
-using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 

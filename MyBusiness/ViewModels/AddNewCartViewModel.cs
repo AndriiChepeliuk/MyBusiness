@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using UmbrellaBiz.Models.Cart;
 using UmbrellaBiz.Models.CartsItem;
@@ -47,21 +46,22 @@ namespace UmbrellaBiz.ViewModels
 
         private void ExecuteAddProductToCartCommand(object obj)
         {
-            Cart.CartsItems.Add(AddCartItem());
+            var allAvailableProductsViewModel = new AllAvailableProductsViewModel();
+            var allAvailableProductsWindow = new AllAvailableProductsWindow() { DataContext = allAvailableProductsViewModel };
+            allAvailableProductsWindow.ShowDialog();
+
+            if (allAvailableProductsViewModel.SelectedProduct != null)
+            {
+                var cartItem = new CartsItemModel();
+                cartItem.Product = allAvailableProductsViewModel.SelectedProduct;
+                Cart.CartsItems.Add(cartItem);
+            }
         }
 
         private void ExecuteCancelAddNewCartCommand(object obj)
         {
             var wind = (Window)obj;
             wind.Close();
-        }
-
-        private CartsItemModel AddCartItem()
-        {
-            var allAvailableProductsViewModel = new AllAvailableProductsViewModel();
-            var allAvailableProductsWindow = new AllAvailableProductsWindow() { DataContext = allAvailableProductsViewModel };
-            allAvailableProductsWindow.ShowDialog();
-            return new CartsItemModel();
         }
     }
 }

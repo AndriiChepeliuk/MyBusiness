@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UmbrellaBiz.Views.AuxiliaryWindows"
         xmlns:viewModel="clr-namespace:UmbrellaBiz.ViewModels.AuxiliaryViewModels"
         mc:Ignorable="d"
-        Title="AllAvailableProductsWindow" Height="650" Width="1200"
+        Title="AllAvailableProductsWindow" Height="700" Width="1200"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
@@ -29,7 +29,7 @@
 
             <ListView Name="LViewProducts"
                       Grid.Row="0"
-                      Margin="10"
+                      Margin="10 30 10 10"
                       ItemsSource="{Binding AvailableProducts}"
                       SelectedItem="{Binding SelectedProduct}"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -47,9 +47,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="{StaticResource backColor1}"
-                            BorderThickness="1"
-                            Margin="5"
-                            CornerRadius="10">
+                                BorderThickness="1"
+                                Margin="5"
+                                CornerRadius="10">
 
                             <Grid Margin="20" Width="200">
                                 <Grid.RowDefinitions>
@@ -103,6 +103,34 @@
                     </StackPanel>
 
                 </Button>
+
+                <Button x:Name="addCartsItem"
+                        Style="{StaticResource simpleButton}"
+                        Margin="5"
+                        Command="{Binding AddProductCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Add product" Style="{StaticResource simpleButtonText}"/>
+                    </StackPanel>
+
+                </Button>
+
+                <TextBlock Text="{Binding ErrorMessage}"
+                           Foreground="Red"
+                           Style="{StaticResource simpleText}"/>
+
+                <TextBox Width="100"
+                         Margin="0 5 5 5"
+                         Style="{StaticResource propertyValueTextBox}"
+                         Text="{Binding ProductWeight}">
+                </TextBox>
+
+                <Label Style="{StaticResource propertyNameLabel}"
+                       Margin="0">
+                    Weight
+                </Label>
 
             </StackPanel>
         </Grid>

@@ -7,7 +7,7 @@
         xmlns:viewModel="clr-namespace:UmbrellaBiz.ViewModels"
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
-        Title="AddNewCartViewWindow" Height="650" Width="1200"
+        Title="AddNewCartViewWindow" Height="700" Width="1200"
         WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
@@ -99,7 +99,7 @@
                           ItemsSource="{Binding Cart.CartsItems}"
                           Grid.Row="1"
                           Grid.Column="0" Grid.ColumnSpan="6"
-                          Margin="15"
+                          Margin="25 10 10 10"
                           Style="{DynamicResource cartItemsDataGridStyle}"
                           CellStyle="{DynamicResource cartItemsDataGridCellStyle}"
                           RowStyle="{DynamicResource cartItemsDataGridRowStyle}"
@@ -129,7 +129,15 @@
                             </DataGridTemplateColumn.CellTemplate>
                             
                         </DataGridTemplateColumn>
-                        
+
+                        <DataGridTextColumn Header="Available Weight"
+                                            IsReadOnly="False"
+                                            Binding="{Binding Product.AvailableWeight}"/>
+
+                        <DataGridTextColumn Header="Weight"
+                                            IsReadOnly="False"
+                                            Binding="{Binding ProductWeight}"/>
+
                     </DataGrid.Columns>
                     
                 </DataGrid>
