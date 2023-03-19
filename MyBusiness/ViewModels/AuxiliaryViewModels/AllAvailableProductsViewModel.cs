@@ -2,17 +2,13 @@
 using System.Windows;
 using System.Windows.Input;
 using UmbrellaBiz.Models.Product;
-using UmbrellaBiz.Services;
 
 namespace UmbrellaBiz.ViewModels.AuxiliaryViewModels
 {
     public class AllAvailableProductsViewModel : ViewModelBase
     {
         private ProductModel selectedProduct;
-        private string _errorMessage;
-        private string _productWeight = "0";
         private ObservableCollection<ProductModel> availableProducts;
-
 
         public ProductModel SelectedProduct
         {
@@ -23,31 +19,6 @@ namespace UmbrellaBiz.ViewModels.AuxiliaryViewModels
                 OnPropertyChanged(nameof(SelectedProduct));
             }
         }
-        public string ErrorMessage
-        {
-            get
-            {
-                return _errorMessage;
-            }
-            set
-            {
-                _errorMessage = value;
-                OnPropertyChanged(nameof(ErrorMessage));
-            }
-        }
-        public string ProductWeight
-        {
-            get
-            {
-                return _productWeight;
-            }
-            set
-            {
-                _productWeight = value;
-                OnPropertyChanged(nameof(ProductWeight));
-            }
-        }
-
         public ObservableCollection<ProductModel> AvailableProducts
         {
             get { return availableProducts; }
@@ -61,31 +32,18 @@ namespace UmbrellaBiz.ViewModels.AuxiliaryViewModels
         public ICommand CancelCommand { get; }
         public ICommand AddProductCommand { get; }
 
-        public AllAvailableProductsViewModel()
+        public AllAvailableProductsViewModel() : this(new ObservableCollection<ProductModel>()) { }
+        public AllAvailableProductsViewModel(ObservableCollection<ProductModel> availableProducts)
         {
-            AvailableProducts = new ObservableCollection<ProductModel>(ProductModelService.GetAvailableProducts());
+            AvailableProducts = availableProducts;
             CancelCommand = new ViewModelCommand(ExecuteCancelCommand);
-            AddProductCommand = new ViewModelCommand(ExecuteAddProductCommand);
+            AddProductCommand = new ViewModelCommand(ExecuteAddProductCommand, CanExecuteAddProductCommand);
         }
 
-        //private bool CanExecuteAddProductCommand(object obj)
-        //{
-        //    bool validData;
-        //    float weight, availableWeight;
-        //    availableWeight = SelectedProduct.AvailableWeight;
-        //    float.TryParse(ProductWeight, out weight);
-
-        //    if (!string.IsNullOrEmpty(ProductWeight) && weight > 0 && weight <= availableWeight)
-        //    {
-        //        validData = true;
-        //    }
-        //    else
-        //    {
-        //        ErrorMessage = "*";
-        //        validData = false;
-        //    }
-        //    return validData;
-        //}
+        private bool CanExecuteAddProductCommand(object obj)
+        {
+            return SelectedProduct != null;
+        }
 
         private void ExecuteAddProductCommand(object obj)
         {

@@ -120,18 +120,7 @@
                 <TextBlock Text="{Binding ErrorMessage}"
                            Foreground="Red"
                            Style="{StaticResource simpleText}"/>
-
-                <TextBox Width="100"
-                         Margin="0 5 5 5"
-                         Style="{StaticResource propertyValueTextBox}"
-                         Text="{Binding ProductWeight}">
-                </TextBox>
-
-                <Label Style="{StaticResource propertyNameLabel}"
-                       Margin="0">
-                    Weight
-                </Label>
-
+                
             </StackPanel>
         </Grid>
     </Border>

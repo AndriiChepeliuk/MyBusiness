@@ -1,8 +1,11 @@
-﻿using System.Windows;
+﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 using UmbrellaBiz.Models.Cart;
 using UmbrellaBiz.Models.CartsItem;
 using UmbrellaBiz.Models.Customer;
+using UmbrellaBiz.Models.Product;
+using UmbrellaBiz.Services;
 using UmbrellaBiz.ViewModels.AuxiliaryViewModels;
 using UmbrellaBiz.Views.AuxiliaryWindows;
 
@@ -12,6 +15,7 @@ namespace UmbrellaBiz.ViewModels
     {
         private CartModel _cart;
         private CustomerModel _customer;
+        private ObservableCollection<ProductModel> availableProducts;
 
         public CartModel Cart
         {
@@ -31,6 +35,15 @@ namespace UmbrellaBiz.ViewModels
                 OnPropertyChanged(nameof(Customer));
             }
         }
+        public ObservableCollection<ProductModel> AvailableProducts
+        {
+            get { return availableProducts; }
+            set
+            {
+                availableProducts = value;
+                OnPropertyChanged(nameof(AvailableProducts));
+            }
+        }
 
         public ICommand CancelAddNewCartCommand { get; }
         public ICommand AddProductToCartCommand { get; }
@@ -42,11 +55,12 @@ namespace UmbrellaBiz.ViewModels
             _cart = new CartModel();
             CancelAddNewCartCommand = new ViewModelCommand(ExecuteCancelAddNewCartCommand);
             AddProductToCartCommand = new ViewModelCommand(ExecuteAddProductToCartCommand);
+            AvailableProducts = new ObservableCollection<ProductModel>(ProductModelService.GetAvailableProducts());
         }
 
         private void ExecuteAddProductToCartCommand(object obj)
         {
-            var allAvailableProductsViewModel = new AllAvailableProductsViewModel();
+            var allAvailableProductsViewModel = new AllAvailableProductsViewModel(AvailableProducts);
             var allAvailableProductsWindow = new AllAvailableProductsWindow() { DataContext = allAvailableProductsViewModel };
             allAvailableProductsWindow.ShowDialog();
 
@@ -55,6 +69,7 @@ namespace UmbrellaBiz.ViewModels
                 var cartItem = new CartsItemModel();
                 cartItem.Product = allAvailableProductsViewModel.SelectedProduct;
                 Cart.CartsItems.Add(cartItem);
+                AvailableProducts.Remove(allAvailableProductsViewModel.SelectedProduct);
             }
         }
 
