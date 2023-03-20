@@ -24,6 +24,7 @@ namespace UmbrellaBiz.Views
             foreach (var item in cart.Cart.CartsItems)
             {
                 tempTotalWeight += item.ProductWeight;
+                item.TotalItemCost = item.ProductWeight * item.Product.Price;
                 tempTotalCost += (item.ProductWeight * item.Product.Price);
             }
 

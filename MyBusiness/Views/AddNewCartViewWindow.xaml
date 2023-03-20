@@ -107,7 +107,7 @@
                           ColumnHeaderStyle="{DynamicResource cartItemsDataGridColumnHeaderStyle}"
                           SelectedItem="{Binding SelectedCartItem}"
                           CurrentCellChanged="cartItemsDataGrid_CurrentCellChanged">
-                    
+
                     <DataGrid.Columns>
 
                         <DataGridTemplateColumn Header="Picture"
@@ -151,23 +151,11 @@
                             
                         </DataGridTextColumn>
 
-                        <DataGridTemplateColumn Header="Operations" 
-                                        IsReadOnly="True" 
-                                        Width="*">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource gridEditButton}">
-                                            <fa:IconImage Icon="UserPen" Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-                                        <Button Style="{StaticResource gridRemoveButton}">
-                                            <fa:IconImage Icon="UserXmark" Style="{StaticResource gridButtonIcon}"/>
-                                        </Button>
-                                        <TextBlock Text="..." VerticalAlignment="Center"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Cost"
+                                            IsReadOnly="True"
+                                            Binding="{Binding TotalItemCost}">
+
+                        </DataGridTextColumn>
 
                     </DataGrid.Columns>
                     

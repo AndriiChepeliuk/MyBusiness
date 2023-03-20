@@ -9,7 +9,7 @@ namespace UmbrellaBiz.Models.CartsItem
         private CartModel? cart;
         private int productId;
         private ProductModel? product;
-        private float price;
+        private float totalItemCost;
         private float productWeight;
 
         public int Id { get; private set; }
@@ -49,13 +49,13 @@ namespace UmbrellaBiz.Models.CartsItem
                 OnPropertyChanged(nameof(Product));
             }
         }
-        public float Price
+        public float TotalItemCost
         {
-            get { return price; }
+            get { return totalItemCost; }
             set
             {
-                price = value;
-                OnPropertyChanged(nameof(Price));
+                totalItemCost = value;
+                OnPropertyChanged(nameof(TotalItemCost));
             }
         }
         public float ProductWeight
