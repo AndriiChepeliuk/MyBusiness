@@ -8,7 +8,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         Title="AddNewCartViewWindow" Height="700" Width="1200"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStyle="None">
@@ -105,8 +105,9 @@
                           CellStyle="{DynamicResource cartItemsDataGridCellStyle}"
                           RowStyle="{DynamicResource cartItemsDataGridRowStyle}"
                           ColumnHeaderStyle="{DynamicResource cartItemsDataGridColumnHeaderStyle}"
-                          SelectedItem="{Binding SelectedCustomer}">
-
+                          SelectedItem="{Binding SelectedCartItem}"
+                          CurrentCellChanged="cartItemsDataGrid_CurrentCellChanged">
+                    
                     <DataGrid.Columns>
 
                         <DataGridTemplateColumn Header="Picture"
@@ -135,13 +136,20 @@
                                             IsReadOnly="True"
                                             Binding="{Binding Product.Name}"/>
 
+                        <DataGridTextColumn Header="Price"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Product.Price}"/>
+
                         <DataGridTextColumn Header="Available Weight"
                                             IsReadOnly="True"
                                             Binding="{Binding Product.AvailableWeight}"/>
 
-                        <DataGridTextColumn Header="Weight"
+                        <DataGridTextColumn x:Name="itemWeight"
+                                            Header="Weight"
                                             IsReadOnly="False"
-                                            Binding="{Binding ProductWeight}"/>
+                                            Binding="{Binding ProductWeight}">
+                            
+                        </DataGridTextColumn>
 
                         <DataGridTemplateColumn Header="Operations" 
                                         IsReadOnly="True" 

@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using UmbrellaBiz.Models.Cart;
 using UmbrellaBiz.Models.CartsItem;
@@ -14,6 +15,7 @@ namespace UmbrellaBiz.ViewModels
     public class AddNewCartViewModel : ViewModelBase
     {
         private CartModel _cart;
+        private CartsItemModel _selectedCartItem;
         private CustomerModel _customer;
         private ObservableCollection<ProductModel> availableProducts;
 
@@ -24,6 +26,15 @@ namespace UmbrellaBiz.ViewModels
             {
                 _cart = value;
                 OnPropertyChanged(nameof(Cart));
+            }
+        }
+        public CartsItemModel SelectedCartItem
+        {
+            get { return _selectedCartItem; }
+            set
+            {
+                _selectedCartItem = value;
+                OnPropertyChanged(nameof(SelectedCartItem));
             }
         }
         public CustomerModel Customer
@@ -44,7 +55,7 @@ namespace UmbrellaBiz.ViewModels
                 OnPropertyChanged(nameof(AvailableProducts));
             }
         }
-
+        
         public ICommand CancelAddNewCartCommand { get; }
         public ICommand AddProductToCartCommand { get; }
 

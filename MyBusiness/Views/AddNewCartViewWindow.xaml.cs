@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using UmbrellaBiz.ViewModels;
 
 namespace UmbrellaBiz.Views
 {
@@ -22,6 +12,23 @@ namespace UmbrellaBiz.Views
         public AddNewCartViewWindow()
         {
             InitializeComponent();
+        }
+
+        private void cartItemsDataGrid_CurrentCellChanged(object sender, EventArgs e)
+        {
+            float tempTotalWeight = 0;
+            float tempTotalCost = 0;
+            var cart = DataContext as AddNewCartViewModel;
+
+
+            foreach (var item in cart.Cart.CartsItems)
+            {
+                tempTotalWeight += item.ProductWeight;
+                tempTotalCost += (item.ProductWeight * item.Product.Price);
+            }
+
+            cart.Cart.TotalCartWeight = tempTotalWeight;
+            cart.Cart.TotalCartCost = tempTotalCost;
         }
     }
 }
