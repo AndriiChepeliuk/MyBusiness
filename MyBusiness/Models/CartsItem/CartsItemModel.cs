@@ -11,6 +11,8 @@ namespace UmbrellaBiz.Models.CartsItem
         private ProductModel? product;
         private float totalItemCost;
         private float productWeight;
+        private bool readyToAdd;
+        private string errorMessage = "*check weight";
 
         public int Id { get; private set; }
         public int CartId
@@ -65,6 +67,35 @@ namespace UmbrellaBiz.Models.CartsItem
             {
                 productWeight = value;
                 OnPropertyChanged(nameof(ProductWeight));
+                if (productWeight > 0 && productWeight <= Product?.AvailableWeight)
+                {
+                    ReadyToAdd = true;
+                    ErrorMessage = "";
+                }
+                else
+                {
+                    ReadyToAdd = false;
+                    ErrorMessage = "*check weight";
+                }
+                TotalItemCost = productWeight * Product.Price;
+            }
+        }
+        public bool ReadyToAdd
+        {
+            get { return readyToAdd; }
+            set
+            {
+                readyToAdd = value;
+                OnPropertyChanged(nameof(ReadyToAdd));
+            }
+        }
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set
+            {
+                errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
             }
         }
     }

@@ -14,6 +14,7 @@ namespace UmbrellaBiz.Models.Cart
         private float totalCartCost;
         private bool isOpen;
         private DateTime dateOfCreation;
+        private bool cartReadyToAdd;
 
         public int Id { get; private set; }
         public int CustomerId
@@ -77,6 +78,15 @@ namespace UmbrellaBiz.Models.Cart
             {
                 dateOfCreation = value;
                 OnPropertyChanged(nameof(DateOfCreation));
+            }
+        }
+        public bool CartReadyToAdd
+        {
+            get { return cartReadyToAdd; }
+            set
+            {
+                cartReadyToAdd = value;
+                OnPropertyChanged(nameof(CartReadyToAdd));
             }
         }
 

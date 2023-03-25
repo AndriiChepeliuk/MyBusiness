@@ -147,8 +147,17 @@
                         <DataGridTextColumn x:Name="itemWeight"
                                             Header="Weight"
                                             IsReadOnly="False"
-                                            Binding="{Binding ProductWeight}">
+                                            Binding="{Binding ProductWeight}"
+                                            Width="80">
                             
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header=""
+                                            IsReadOnly="False"
+                                            Binding="{Binding ErrorMessage}"
+                                            Foreground="{StaticResource titleColor5}"
+                                            Width="150">
+
                         </DataGridTextColumn>
 
                         <DataGridTextColumn Header="Cost"
@@ -156,7 +165,7 @@
                                             Binding="{Binding TotalItemCost}">
 
                         </DataGridTextColumn>
-
+                        
                     </DataGrid.Columns>
                     
                 </DataGrid>
@@ -181,7 +190,23 @@
                     </StackPanel>
 
                 </Button>
-                
+
+                <TextBlock x:Name="isReady"
+                           Text="{Binding Cart.CartReadyToAdd, StringFormat={}Is cart ready: {0} }"
+                           Margin="5"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left">
+
+                </TextBlock>
+
+                <TextBlock x:Name="errorAlert"
+                           Margin="5"
+                           Style="{StaticResource simpleText}"
+                           Foreground="Red"
+                           HorizontalAlignment="Left">
+
+                </TextBlock>
+
             </StackPanel>
         </Grid>
 

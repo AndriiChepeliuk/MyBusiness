@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using UmbrellaBiz.ViewModels;
 
@@ -20,16 +21,30 @@ namespace UmbrellaBiz.Views
             float tempTotalCost = 0;
             var cart = DataContext as AddNewCartViewModel;
 
-
-            foreach (var item in cart.Cart.CartsItems)
+            if (cart != null)
             {
-                tempTotalWeight += item.ProductWeight;
-                item.TotalItemCost = item.ProductWeight * item.Product.Price;
-                tempTotalCost += (item.ProductWeight * item.Product.Price);
+                foreach (var item in cart.Cart.CartsItems)
+                {
+                    tempTotalWeight += item.ProductWeight;
+                    tempTotalCost += (item.ProductWeight * item.Product.Price);
+                }
+
+                if (cart.Cart.CartsItems.FirstOrDefault(x => x.ReadyToAdd == false) == null)
+                {
+                    cart.Cart.CartReadyToAdd = true;
+                }
+                else cart.Cart.CartReadyToAdd = false;
+
+                cart.Cart.TotalCartWeight = tempTotalWeight;
+                cart.Cart.TotalCartCost = tempTotalCost;
+
+                if (!cart.Cart.CartReadyToAdd)
+                {
+                    errorAlert.Text = "He-he-he";
+                }
+                else errorAlert.Text = "";
             }
 
-            cart.Cart.TotalCartWeight = tempTotalWeight;
-            cart.Cart.TotalCartCost = tempTotalCost;
         }
     }
 }
