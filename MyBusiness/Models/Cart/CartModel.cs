@@ -2,7 +2,6 @@
 using UmbrellaBiz.Models.Customer;
 using System;
 using System.Collections.ObjectModel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace UmbrellaBiz.Models.Cart
 {
@@ -10,11 +9,12 @@ namespace UmbrellaBiz.Models.Cart
     {
         private int customerId;
         private CustomerModel? customer;
-        private ObservableCollection<CartsItemModel> cartsItems;
+        private ObservableCollection<CartsItemModel> cartsItems = new ObservableCollection<CartsItemModel>();
         private float totalCartWeight;
         private float totalCartCost;
         private bool isOpen;
         private DateTime dateOfCreation;
+        private bool cartReadyToAdd;
 
         public int Id { get; private set; }
         public int CustomerId
@@ -78,6 +78,15 @@ namespace UmbrellaBiz.Models.Cart
             {
                 dateOfCreation = value;
                 OnPropertyChanged(nameof(DateOfCreation));
+            }
+        }
+        public bool CartReadyToAdd
+        {
+            get { return cartReadyToAdd; }
+            set
+            {
+                cartReadyToAdd = value;
+                OnPropertyChanged(nameof(CartReadyToAdd));
             }
         }
 

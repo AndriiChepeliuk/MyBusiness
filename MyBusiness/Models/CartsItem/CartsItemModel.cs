@@ -1,6 +1,5 @@
 ﻿using UmbrellaBiz.Models.Cart;
 using UmbrellaBiz.Models.Product;
-using System;
 
 namespace UmbrellaBiz.Models.CartsItem
 {
@@ -10,8 +9,10 @@ namespace UmbrellaBiz.Models.CartsItem
         private CartModel? cart;
         private int productId;
         private ProductModel? product;
-        private float price;
+        private float totalItemCost;
         private float productWeight;
+        private bool readyToAdd;
+        private string errorMessage = "*check weight";
 
         public int Id { get; private set; }
         public int CartId
@@ -50,13 +51,13 @@ namespace UmbrellaBiz.Models.CartsItem
                 OnPropertyChanged(nameof(Product));
             }
         }
-        public float Price
+        public float TotalItemCost
         {
-            get { return price; }
+            get { return totalItemCost; }
             set
             {
-                price = value;
-                OnPropertyChanged(nameof(Price));
+                totalItemCost = value;
+                OnPropertyChanged(nameof(TotalItemCost));
             }
         }
         public float ProductWeight
@@ -66,6 +67,35 @@ namespace UmbrellaBiz.Models.CartsItem
             {
                 productWeight = value;
                 OnPropertyChanged(nameof(ProductWeight));
+                if (productWeight > 0 && productWeight <= Product?.AvailableWeight)
+                {
+                    ReadyToAdd = true;
+                    ErrorMessage = "";
+                }
+                else
+                {
+                    ReadyToAdd = false;
+                    ErrorMessage = "*check weight";
+                }
+                TotalItemCost = productWeight * Product.Price;
+            }
+        }
+        public bool ReadyToAdd
+        {
+            get { return readyToAdd; }
+            set
+            {
+                readyToAdd = value;
+                OnPropertyChanged(nameof(ReadyToAdd));
+            }
+        }
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set
+            {
+                errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
             }
         }
     }

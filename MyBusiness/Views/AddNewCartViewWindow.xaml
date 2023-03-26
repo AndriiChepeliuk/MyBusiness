@@ -1,0 +1,211 @@
+﻿<Window x:Class="UmbrellaBiz.Views.AddNewCartViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UmbrellaBiz.Views"
+        xmlns:viewModel="clr-namespace:UmbrellaBiz.ViewModels"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        mc:Ignorable="d"
+        Title="AddNewCartViewWindow" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None">
+
+    <Window.DataContext>
+        <viewModel:AddNewCartViewModel/>
+    </Window.DataContext>
+
+    <Border CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="{StaticResource backColor5}"
+            Background="{StaticResource backColor3}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Rectangle Height="50"
+                               Width="50"
+                               RadiusX="25"
+                               RadiusY="25">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{Binding Customer.Avatar}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </StackPanel>
+
+                <TextBlock Text="{Binding Customer.Name, StringFormat={}{0}`s cart}"
+                           Grid.Row="0"
+                           Grid.Column="1" Grid.ColumnSpan="2"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left">
+                    
+                </TextBlock>
+
+                <TextBlock Text="{Binding Cart.TotalCartWeight, StringFormat={}Total weight: {0} kg}"
+                           Grid.Row="0"
+                           Grid.Column="3"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left">
+
+                </TextBlock>
+
+                <TextBlock x:Name="totalCost"
+                           Text="{Binding Cart.TotalCartCost, StringFormat={}Total cost: {0} UAH}"
+                           Grid.Row="0"
+                           Grid.Column="4"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left">
+
+                </TextBlock>
+
+                <Button x:Name="addCartsItem" 
+                        Grid.Row="0"
+                        Grid.Column="5"
+                        Style="{StaticResource simpleButton}"
+                        Margin="5"
+                        Command="{Binding AddProductToCartCommand}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Add product" Style="{StaticResource simpleButtonText}"/>
+                    </StackPanel>
+
+                </Button>
+
+                <DataGrid x:Name="cartItemsDataGrid"
+                          ItemsSource="{Binding Cart.CartsItems}"
+                          Grid.Row="1"
+                          Grid.Column="0" Grid.ColumnSpan="6"
+                          Margin="25 10 10 10"
+                          Style="{DynamicResource cartItemsDataGridStyle}"
+                          CellStyle="{DynamicResource cartItemsDataGridCellStyle}"
+                          RowStyle="{DynamicResource cartItemsDataGridRowStyle}"
+                          ColumnHeaderStyle="{DynamicResource cartItemsDataGridColumnHeaderStyle}"
+                          SelectedItem="{Binding SelectedCartItem}"
+                          CurrentCellChanged="cartItemsDataGrid_CurrentCellChanged">
+
+                    <DataGrid.Columns>
+
+                        <DataGridTemplateColumn Header="Picture"
+                                                IsReadOnly="True"
+                                                Width="100">
+
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Grid.Row="0"
+                                                   Height="50"
+                                                   Width="50"
+                                                   RadiusX="25"
+                                                   RadiusY="25">
+                                            <Rectangle.Fill>
+                                                <ImageBrush ImageSource="{Binding Product.Image}"/>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Name"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Product.Name}"/>
+
+                        <DataGridTextColumn Header="Price"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Product.Price}"/>
+
+                        <DataGridTextColumn Header="Available Weight"
+                                            IsReadOnly="True"
+                                            Binding="{Binding Product.AvailableWeight}"/>
+
+                        <DataGridTextColumn x:Name="itemWeight"
+                                            Header="Weight"
+                                            IsReadOnly="False"
+                                            Binding="{Binding ProductWeight}"
+                                            Width="80">
+                            
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header=""
+                                            IsReadOnly="False"
+                                            Binding="{Binding ErrorMessage}"
+                                            Foreground="{StaticResource titleColor5}"
+                                            Width="150">
+
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="Cost"
+                                            IsReadOnly="True"
+                                            Binding="{Binding TotalItemCost}">
+
+                        </DataGridTextColumn>
+                        
+                    </DataGrid.Columns>
+                    
+                </DataGrid>
+                
+            </Grid>
+
+            <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal"
+                    FlowDirection="RightToLeft"
+                    Margin="5">
+
+                <Button x:Name="deleteProduct" 
+                        Style="{StaticResource deleteButton}"
+                        Margin="5"
+                        Command="{Binding CancelAddNewCartCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Cancel" Style="{StaticResource deleteButtonText}"/>
+                    </StackPanel>
+
+                </Button>
+
+                <Button Style="{StaticResource editButton}"
+                        Command="{Binding AddCartCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}"
+                        Margin="5">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Add Cart" Style="{StaticResource complexButtonText}"/>
+                        <fa:IconImage Icon="CartPlus" Style="{StaticResource complexButtonIcon}"/>
+                    </StackPanel>
+
+                </Button>
+
+            </StackPanel>
+        </Grid>
+
+    </Border>
+</Window>

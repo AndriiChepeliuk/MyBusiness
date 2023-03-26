@@ -15,6 +15,11 @@ namespace UmbrellaBiz.Models.CartsItem
                 .HasOne(c => c.Product)
                 .WithMany(c => c.CartsItems)
                 .HasForeignKey(c => c.ProductId);
+            builder
+                .Ignore(c => c.ReadyToAdd);
+
+            builder
+                .Ignore(c => c.ErrorMessage);
         }
     }
 }
