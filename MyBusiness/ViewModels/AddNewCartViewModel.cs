@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -58,6 +59,7 @@ namespace UmbrellaBiz.ViewModels
         
         public ICommand CancelAddNewCartCommand { get; }
         public ICommand AddProductToCartCommand { get; }
+        public ICommand AddCartCommand { get; }
 
         public AddNewCartViewModel() : this(new CustomerModel()) { }
         public AddNewCartViewModel(CustomerModel selectedCustomer)
@@ -66,7 +68,21 @@ namespace UmbrellaBiz.ViewModels
             _cart = new CartModel();
             CancelAddNewCartCommand = new ViewModelCommand(ExecuteCancelAddNewCartCommand);
             AddProductToCartCommand = new ViewModelCommand(ExecuteAddProductToCartCommand);
+            AddCartCommand = new ViewModelCommand(ExecuteAddCartCommand, CanExecuteAddCartCommand);
             AvailableProducts = new ObservableCollection<ProductModel>(ProductModelService.GetAvailableProducts());
+        }
+
+        private bool CanExecuteAddCartCommand(object obj)
+        {
+            return Cart.CartReadyToAdd;
+        }
+
+        private void ExecuteAddCartCommand(object obj)
+        {
+            Cart.Customer = _customer;
+            CartModelService.AddCart(Cart);
+            var wind = (Window)obj;
+            wind.Close();
         }
 
         private void ExecuteAddProductToCartCommand(object obj)

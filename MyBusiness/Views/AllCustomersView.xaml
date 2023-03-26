@@ -66,12 +66,12 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{StaticResource gridEditButton}">
+                                <!--<Button Style="{StaticResource gridEditButton}">
                                     <fa:IconImage Icon="UserPen" Style="{StaticResource gridButtonIcon}"/>
                                 </Button>
                                 <Button Style="{StaticResource gridRemoveButton}">
                                     <fa:IconImage Icon="UserXmark" Style="{StaticResource gridButtonIcon}"/>
-                                </Button>
+                                </Button>-->
                                 <TextBlock Text="..." VerticalAlignment="Center"/>
                             </StackPanel>
                         </DataTemplate>

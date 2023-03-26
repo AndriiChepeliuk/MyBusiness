@@ -191,21 +191,18 @@
 
                 </Button>
 
-                <TextBlock x:Name="isReady"
-                           Text="{Binding Cart.CartReadyToAdd, StringFormat={}Is cart ready: {0} }"
-                           Margin="5"
-                           Style="{StaticResource simpleText}"
-                           HorizontalAlignment="Left">
+                <Button Style="{StaticResource editButton}"
+                        Command="{Binding AddCartCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                                        AncestorType={x:Type Window}}}"
+                        Margin="5">
 
-                </TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Add Cart" Style="{StaticResource complexButtonText}"/>
+                        <fa:IconImage Icon="CartPlus" Style="{StaticResource complexButtonIcon}"/>
+                    </StackPanel>
 
-                <TextBlock x:Name="errorAlert"
-                           Margin="5"
-                           Style="{StaticResource simpleText}"
-                           Foreground="Red"
-                           HorizontalAlignment="Left">
-
-                </TextBlock>
+                </Button>
 
             </StackPanel>
         </Grid>

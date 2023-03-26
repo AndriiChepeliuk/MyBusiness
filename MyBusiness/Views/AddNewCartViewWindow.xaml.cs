@@ -38,11 +38,6 @@ namespace UmbrellaBiz.Views
                 cart.Cart.TotalCartWeight = tempTotalWeight;
                 cart.Cart.TotalCartCost = tempTotalCost;
 
-                if (!cart.Cart.CartReadyToAdd)
-                {
-                    errorAlert.Text = "He-he-he";
-                }
-                else errorAlert.Text = "";
             }
 
         }
