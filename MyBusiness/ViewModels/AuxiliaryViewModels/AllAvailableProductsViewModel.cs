@@ -7,24 +7,24 @@ namespace UmbrellaBiz.ViewModels.AuxiliaryViewModels
 {
     public class AllAvailableProductsViewModel : ViewModelBase
     {
-        private ProductModel selectedProduct;
-        private ObservableCollection<ProductModel> availableProducts;
+        private ProductModel _selectedProduct;
+        private ObservableCollection<ProductModel> _availableProducts;
 
         public ProductModel SelectedProduct
         {
-            get { return selectedProduct; }
+            get { return _selectedProduct; }
             set
             {
-                selectedProduct = value;
+                _selectedProduct = value;
                 OnPropertyChanged(nameof(SelectedProduct));
             }
         }
         public ObservableCollection<ProductModel> AvailableProducts
         {
-            get { return availableProducts; }
+            get { return _availableProducts; }
             set
             {
-                availableProducts = value;
+                _availableProducts = value;
                 OnPropertyChanged(nameof(AvailableProducts));
             }
         }

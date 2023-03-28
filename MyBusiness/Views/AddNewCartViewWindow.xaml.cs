@@ -36,7 +36,7 @@ namespace UmbrellaBiz.Views
                 else cart.Cart.CartReadyToAdd = false;
 
                 cart.Cart.TotalCartWeight = tempTotalWeight;
-                cart.Cart.TotalCartCost = tempTotalCost;
+                cart.Cart.TotalCartPrice = tempTotalCost;
 
             }
 

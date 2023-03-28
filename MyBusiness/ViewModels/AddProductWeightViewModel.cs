@@ -1,6 +1,5 @@
 ﻿using UmbrellaBiz.Models.Product;
 using UmbrellaBiz.Services;
-using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -8,24 +7,23 @@ namespace UmbrellaBiz.ViewModels
 {
     public class AddProductWeightViewModel : ViewModelBase
     {
-        private ProductModel product;
-        private ProductModel productData;
-        private float productWeight;
+        private ProductModel _product;
+        private float _productWeight;
         public ProductModel Product
         {
-            get { return product; }
+            get { return _product; }
             set
             {
-                product = value;
+                _product = value;
                 OnPropertyChanged(nameof(Product));
             }
         }
         public float ProductWeight
         {
-            get { return productWeight; }
+            get { return _productWeight; }
             set
             {
-                productWeight = value;
+                _productWeight = value;
                 OnPropertyChanged(nameof(ProductWeight));
             }
         }
@@ -40,7 +38,6 @@ namespace UmbrellaBiz.ViewModels
             AddWeightCommand = new ViewModelCommand(ExecuteAddWeightCommand);
             CancelAddWeightCommand = new ViewModelCommand(ExecuteCancelAddWeightCommand);
             Product = product;
-            productData = (ProductModel)product.Clone();
         }
 
         private void ExecuteCancelAddWeightCommand(object obj)

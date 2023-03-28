@@ -1,50 +1,49 @@
-﻿using UmbrellaBiz.Models.Customer;
-using UmbrellaBiz.Models.Product;
+﻿using UmbrellaBiz.Models.Product;
 using System;
 
 namespace UmbrellaBiz.Models.AddingWeightItem
 {
     public class AddingWeightItemModel : ModelBase
     {
-        private int productId;
-        private ProductModel product;
-        private float weight;
-        private DateTime date;
+        private int _productId;
+        private ProductModel _product;
+        private float _weight;
+        private DateTime _date;
 
         public int Id { get; private set; }
         public int ProductId
         {
-            get { return productId; }
+            get { return _productId; }
             set
             {
-                productId = value;
+                _productId = value;
                 OnPropertyChanged(nameof(ProductId));
             }
         }
         public ProductModel Product
         {
-            get { return product; }
+            get { return _product; }
             set
             {
-                product = value;
+                _product = value;
                 OnPropertyChanged(nameof(Product));
             }
         }
         public float Weight
         {
-            get { return weight; }
+            get { return _weight; }
             set
             {
-                weight = value;
+                _weight = value;
                 OnPropertyChanged(nameof(Weight));
             }
         }
         public DateTime Date
         {
-            get { return date; }
+            get { return _date; }
             set
             {
-                date = value;
+                _date = value;
                 OnPropertyChanged(nameof(Date));
             }
         }

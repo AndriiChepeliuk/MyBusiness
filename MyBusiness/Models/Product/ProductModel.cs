@@ -7,86 +7,96 @@ namespace UmbrellaBiz.Models.Product
 {
     public class ProductModel : ModelBase
     {
-        private string? name;
-        private string? category;
-        private float availableWeight;
-        private float reservedWeight;
-        private float price;
-        private BitmapImage image;
-        private ObservableCollection<CartsItemModel> cartsItems;
-        private ObservableCollection<AddingWeightItemModel> addingWeightItems;
+        private string? _name;
+        private string? _category;
+        private float _availableWeight;
+        private float _reservedWeight;
+        private float _price;
+        private float _cost;
+        private BitmapImage _image;
+        private ObservableCollection<CartsItemModel> _cartsItems;
+        private ObservableCollection<AddingWeightItemModel> _addingWeightItems;
 
         public int Id { get; private set; }
         public string Name 
         { 
-            get { return name; } 
+            get { return _name; } 
             set
             {
-                name = value;
+                _name = value;
                 OnPropertyChanged(nameof(Name));
             }
         }
         public string Category
         {
-            get { return category; }
+            get { return _category; }
             set
             {
-                category = value;
+                _category = value;
                 OnPropertyChanged(nameof(Category));
             }
         }
         public float AvailableWeight
         {
-            get { return availableWeight; }
+            get { return _availableWeight; }
             set
             {
-                availableWeight = value;
+                _availableWeight = value;
                 OnPropertyChanged(nameof(AvailableWeight));
             }
         }
         public float ReservedWeight
         {
-            get { return reservedWeight; }
+            get { return _reservedWeight; }
             set
             {
-                reservedWeight = value;
+                _reservedWeight = value;
                 OnPropertyChanged(nameof(ReservedWeight));
             }
         }
         public float Price
         {
-            get { return price; }
+            get { return _price; }
             set
             {
-                price = value;
+                _price = value;
                 OnPropertyChanged(nameof(Price));
+            }
+        }
+        public float Cost
+        {
+            get { return _cost; }
+            set
+            {
+                _cost = value;
+                OnPropertyChanged(nameof(Cost));
             }
         }
         public byte[]? ProductImage { get; set; }
         public BitmapImage Image
         {
-            get { return image; }
+            get { return _image; }
             set
             {
-                image = value;
+                _image = value;
                 OnPropertyChanged(nameof(Image));
             }
         }
         public ObservableCollection<CartsItemModel> CartsItems
         {
-            get { return cartsItems; }
+            get { return _cartsItems; }
             set
             {
-                cartsItems = value;
+                _cartsItems = value;
                 OnPropertyChanged(nameof(CartsItems));
             }
         }
         public ObservableCollection<AddingWeightItemModel> AddingWeightItems
         {
-            get { return addingWeightItems; }
+            get { return _addingWeightItems; }
             set
             {
-                addingWeightItems = value;
+                _addingWeightItems = value;
                 OnPropertyChanged(nameof(AddingWeightItems));
             }
         }

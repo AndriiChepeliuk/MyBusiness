@@ -6,46 +6,46 @@ namespace UmbrellaBiz.Models.Customer
 {
     public class CustomerModel : ModelBase
     {
-        private string? name;
-        private string? mobileNumber;
-        private BitmapImage avatar;
-        private ObservableCollection<CartModel> carts;// = new ObservableCollection<CartModel>();
+        private string? _name;
+        private string? _mobileNumber;
+        private BitmapImage _avatar;
+        private ObservableCollection<CartModel> _carts;// = new ObservableCollection<CartModel>();
 
         public int Id { get; private set; }
         public string Name
         {
-            get { return name; }
+            get { return _name; }
             set
             {
-                name = value;
+                _name = value;
                 OnPropertyChanged(nameof(Name));
             }
         }
         public string MobileNumber
         {
-            get { return mobileNumber; }
+            get { return _mobileNumber; }
             set
             {
-                mobileNumber = value;
+                _mobileNumber = value;
                 OnPropertyChanged(nameof(MobileNumber));
             }
         }
         public byte[]? AvatarByteCode { get; set; }
         public BitmapImage Avatar
         {
-            get { return avatar; }
+            get { return _avatar; }
             set
             {
-                avatar = value;
+                _avatar = value;
                 OnPropertyChanged(nameof(Avatar));
             }
         }
         public ObservableCollection<CartModel> Carts
         {
-            get { return carts; }
+            get { return _carts; }
             set
             {
-                carts = value;
+                _carts = value;
                 OnPropertyChanged(nameof(Carts));
             }
         }

@@ -2,34 +2,33 @@
 using UmbrellaBiz.Helpers;
 using UmbrellaBiz.Models.Customer;
 using UmbrellaBiz.Services;
-using System;
 using System.Windows.Input;
 
 namespace UmbrellaBiz.ViewModels
 {
     public class AddCustomerViewModel : ViewModelBase
     {
-        private CustomerModel customer;
-        private string? imageSource;
+        private CustomerModel _customer;
+        private string? _imageSource;
 
         public ICommand ChoosePictureCommand { get; }
         public ICommand AddCustomerCommand { get; }
 
         public CustomerModel Customer
         {
-            get { return customer; }
+            get { return _customer; }
             set
             {
-                customer = value;
+                _customer = value;
                 OnPropertyChanged(nameof(Customer));
             }
         }
         public string ImageSource
         {
-            get { return imageSource; }
+            get { return _imageSource; }
             set
             {
-                imageSource = value;
+                _imageSource = value;
                 OnPropertyChanged(nameof(ImageSource));
             }
         }

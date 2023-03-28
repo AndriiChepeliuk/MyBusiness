@@ -8,24 +8,24 @@ namespace UmbrellaBiz.ViewModels
 {
     public class AllCustomersViewModel : ViewModelBase
     {
-        private CustomerModel selectedCustomer;
-        private ObservableCollection<CustomerModel> customers;
+        private CustomerModel _selectedCustomer;
+        private ObservableCollection<CustomerModel> _customers;
 
         public CustomerModel SelectedCustomer
         {
-            get { return selectedCustomer; }
+            get { return _selectedCustomer; }
             set
             {
-                selectedCustomer = value;
+                _selectedCustomer = value;
                 OnPropertyChanged(nameof(SelectedCustomer));
             }
         }
         public ObservableCollection<CustomerModel> Customers
         {
-            get { return customers; }
+            get { return _customers; }
             set
             {
-                customers = value;
+                _customers = value;
                 OnPropertyChanged(nameof(Customers));
             }
         }
@@ -45,7 +45,7 @@ namespace UmbrellaBiz.ViewModels
 
         private void ExecuteAddNewCartCommand(object obj)
         {
-            var addNewCartViewModel = new AddNewCartViewModel(selectedCustomer);
+            var addNewCartViewModel = new AddNewCartViewModel(_selectedCustomer);
             var addNewCartWindow = new AddNewCartViewWindow() { DataContext = addNewCartViewModel };
             addNewCartWindow.ShowDialog();
         }
