@@ -5,69 +5,79 @@ namespace UmbrellaBiz.Models.CartsItem
 {
     public class CartsItemModel : ModelBase
     {
-        private int cartId;
-        private CartModel? cart;
-        private int productId;
-        private ProductModel? product;
-        private float totalItemCost;
-        private float productWeight;
-        private bool readyToAdd;
-        private string errorMessage = "*check weight";
+        private int _cartId;
+        private CartModel? _cart;
+        private int _productId;
+        private ProductModel? _product;
+        private float _totalItemPrice;
+        private float _totalItemCost;
+        private float _productWeight;
+        private bool _readyToAdd;
+        private string _errorMessage = "*check weight";
 
         public int Id { get; private set; }
         public int CartId
         {
-            get { return cartId; }
+            get { return _cartId; }
             set
             {
-                cartId = value;
+                _cartId = value;
                 OnPropertyChanged(nameof(CartId));
             }
         }
         public CartModel? Cart
         {
-            get { return cart; }
+            get { return _cart; }
             set
             {
-                cart = value;
+                _cart = value;
                 OnPropertyChanged(nameof(Cart));
             }
         }
         public int ProductId
         {
-            get { return productId; }
+            get { return _productId; }
             set
             {
-                productId = value;
+                _productId = value;
                 OnPropertyChanged(nameof(ProductId));
             }
         }
         public ProductModel? Product
         {
-            get { return product; }
+            get { return _product; }
             set
             {
-                product = value;
+                _product = value;
                 OnPropertyChanged(nameof(Product));
+            }
+        }
+        public float TotalItemPrice
+        {
+            get { return _totalItemPrice; }
+            set
+            {
+                _totalItemPrice = value;
+                OnPropertyChanged(nameof(TotalItemPrice));
             }
         }
         public float TotalItemCost
         {
-            get { return totalItemCost; }
+            get { return _totalItemCost; }
             set
             {
-                totalItemCost = value;
+                _totalItemCost = value;
                 OnPropertyChanged(nameof(TotalItemCost));
             }
         }
         public float ProductWeight
         {
-            get { return productWeight; }
+            get { return _productWeight; }
             set
             {
-                productWeight = value;
+                _productWeight = value;
                 OnPropertyChanged(nameof(ProductWeight));
-                if (productWeight > 0 && productWeight <= Product?.AvailableWeight)
+                if (_productWeight > 0 && _productWeight <= Product?.AvailableWeight)
                 {
                     ReadyToAdd = true;
                     ErrorMessage = "";
@@ -77,24 +87,24 @@ namespace UmbrellaBiz.Models.CartsItem
                     ReadyToAdd = false;
                     ErrorMessage = "*check weight";
                 }
-                TotalItemCost = productWeight * Product.Price;
+                TotalItemPrice = _productWeight * Product.Price;
             }
         }
         public bool ReadyToAdd
         {
-            get { return readyToAdd; }
+            get { return _readyToAdd; }
             set
             {
-                readyToAdd = value;
+                _readyToAdd = value;
                 OnPropertyChanged(nameof(ReadyToAdd));
             }
         }
         public string ErrorMessage
         {
-            get { return errorMessage; }
+            get { return _errorMessage; }
             set
             {
-                errorMessage = value;
+                _errorMessage = value;
                 OnPropertyChanged(nameof(ErrorMessage));
             }
         }

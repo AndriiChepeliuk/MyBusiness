@@ -7,85 +7,95 @@ namespace UmbrellaBiz.Models.Cart
 {
     public class CartModel : ModelBase
     {
-        private int customerId;
-        private CustomerModel? customer;
-        private ObservableCollection<CartsItemModel> cartsItems = new ObservableCollection<CartsItemModel>();
-        private float totalCartWeight;
-        private float totalCartCost;
-        private bool isOpen;
-        private DateTime dateOfCreation;
-        private bool cartReadyToAdd;
+        private int _customerId;
+        private CustomerModel? _customer;
+        private ObservableCollection<CartsItemModel> _cartsItems = new ObservableCollection<CartsItemModel>();
+        private float _totalCartWeight;
+        private float _totalCartPrice;
+        private float _totalCartCost;
+        private bool _isOpen;
+        private DateTime _dateOfCreation;
+        private bool _cartReadyToAdd;
 
         public int Id { get; private set; }
         public int CustomerId
         {
-            get { return customerId; }
+            get { return _customerId; }
             set
             {
-                customerId = value;
+                _customerId = value;
                 OnPropertyChanged(nameof(CustomerId));
             }
         }
         public CustomerModel Customer
         {
-            get { return customer; }
+            get { return _customer; }
             set
             {
-                customer = value;
+                _customer = value;
                 OnPropertyChanged(nameof(Customer));
             }
         }
         public ObservableCollection<CartsItemModel> CartsItems
         {
-            get { return cartsItems; }
+            get { return _cartsItems; }
             set
             {
-                cartsItems = value;
+                _cartsItems = value;
                 OnPropertyChanged(nameof(CartsItems));
             }
         }
         public float TotalCartWeight
         {
-            get { return totalCartWeight; }
+            get { return _totalCartWeight; }
             set
             {
-                totalCartWeight = value;
+                _totalCartWeight = value;
                 OnPropertyChanged(nameof(TotalCartWeight));
+            }
+        }
+        public float TotalCartPrice
+        {
+            get { return _totalCartPrice; }
+            set
+            {
+                _totalCartPrice = value;
+                OnPropertyChanged(nameof(TotalCartPrice));
             }
         }
         public float TotalCartCost
         {
-            get { return totalCartCost; }
+            get { return _totalCartCost; }
             set
             {
-                totalCartCost = value;
+                _totalCartCost = value;
                 OnPropertyChanged(nameof(TotalCartCost));
             }
         }
         public bool IsOpen
         {
-            get { return isOpen; }
+            get { return _isOpen; }
             set
             {
-                isOpen = value;
+                _isOpen = value;
                 OnPropertyChanged(nameof(IsOpen));
             }
         }
         public DateTime DateOfCreation
         {
-            get { return dateOfCreation; }
+            get { return _dateOfCreation; }
             set
             {
-                dateOfCreation = value;
+                _dateOfCreation = value;
                 OnPropertyChanged(nameof(DateOfCreation));
             }
         }
         public bool CartReadyToAdd
         {
-            get { return cartReadyToAdd; }
+            get { return _cartReadyToAdd; }
             set
             {
-                cartReadyToAdd = value;
+                _cartReadyToAdd = value;
                 OnPropertyChanged(nameof(CartReadyToAdd));
             }
         }

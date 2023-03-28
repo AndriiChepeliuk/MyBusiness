@@ -8,27 +8,27 @@ namespace UmbrellaBiz.ViewModels
 {
     public class AddProductViewModel : ViewModelBase
     {
-        private ProductModel product;
-        private string? imageSource;
+        private ProductModel _product;
+        private string? _imageSource;
 
         public ICommand ChoosePictureCommand { get; }
         public ICommand AddProductCommand { get; }
 
         public ProductModel Product
         {
-            get { return product; }
+            get { return _product; }
             set
             {
-                product = value;
+                _product = value;
                 OnPropertyChanged(nameof(Product));
             }
         }
         public string ImageSource
         {
-            get { return imageSource; }
+            get { return _imageSource; }
             set
             {
-                imageSource = value;
+                _imageSource = value;
                 OnPropertyChanged(nameof(ImageSource));
             }
         }

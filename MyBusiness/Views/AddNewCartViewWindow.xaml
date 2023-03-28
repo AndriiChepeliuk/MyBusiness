@@ -75,7 +75,7 @@
                 </TextBlock>
 
                 <TextBlock x:Name="totalCost"
-                           Text="{Binding Cart.TotalCartCost, StringFormat={}Total cost: {0} UAH}"
+                           Text="{Binding Cart.TotalCartPrice, StringFormat={}Total price: {0} UAH}"
                            Grid.Row="0"
                            Grid.Column="4"
                            Style="{StaticResource simpleText}"
@@ -162,7 +162,7 @@
 
                         <DataGridTextColumn Header="Cost"
                                             IsReadOnly="True"
-                                            Binding="{Binding TotalItemCost}">
+                                            Binding="{Binding TotalItemPrice}">
 
                         </DataGridTextColumn>
                         

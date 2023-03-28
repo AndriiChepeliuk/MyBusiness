@@ -1,5 +1,4 @@
 ﻿using FontAwesome.Sharp;
-using System;
 using System.Windows.Input;
 
 namespace UmbrellaBiz.ViewModels

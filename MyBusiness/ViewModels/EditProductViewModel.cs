@@ -11,14 +11,14 @@ namespace UmbrellaBiz.ViewModels
 {
     public class EditProductViewModel : ViewModelBase
     {
-        private ProductModel productToEdit;
-        private ProductModel productData;
+        private ProductModel _productToEdit;
+        private ProductModel _productData;
         public ProductModel ProductToEdit
         {
-            get { return productToEdit; }
+            get { return _productToEdit; }
             set
             {
-                productToEdit = value;
+                _productToEdit = value;
                 OnPropertyChanged(nameof(ProductToEdit));
             }
         }
@@ -35,16 +35,16 @@ namespace UmbrellaBiz.ViewModels
             SaveChangesCommand = new ViewModelCommand(ExecuteSaveChangesCommand);
             CancelChangesCommand = new ViewModelCommand(ExecuteCancelChangesCommand);
             ProductToEdit = product;
-            productData = (ProductModel)product.Clone();
+            _productData = (ProductModel)product.Clone();
         }
 
         private void ExecuteCancelChangesCommand(object obj)
         {
-            ProductToEdit.ProductImage = productData.ProductImage;
-            ProductToEdit.Image = productData.Image;
-            ProductToEdit.Name = productData.Name;
-            ProductToEdit.Category = productData.Category;
-            ProductToEdit.Price = productData.Price;
+            ProductToEdit.ProductImage = _productData.ProductImage;
+            ProductToEdit.Image = _productData.Image;
+            ProductToEdit.Name = _productData.Name;
+            ProductToEdit.Category = _productData.Category;
+            ProductToEdit.Price = _productData.Price;
 
             var wind = (Window)obj;
             wind.Close();

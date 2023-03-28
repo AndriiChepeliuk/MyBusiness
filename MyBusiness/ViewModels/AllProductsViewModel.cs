@@ -8,24 +8,24 @@ namespace UmbrellaBiz.ViewModels
 {
     public class AllProductsViewModel : ViewModelBase
     {
-        private ProductModel selectedProduct;
-        private ObservableCollection<ProductModel> products;
+        private ProductModel _selectedProduct;
+        private ObservableCollection<ProductModel> _products;
 
         public ProductModel SelectedProduct
         {
-            get { return selectedProduct; }
+            get { return _selectedProduct; }
             set
             {
-                selectedProduct = value;
+                _selectedProduct = value;
                 OnPropertyChanged(nameof(SelectedProduct));
             }
         }
         public ObservableCollection<ProductModel> Products
         {
-            get { return products; }
+            get { return _products; }
             set
             {
-                products = value;
+                _products = value;
                 OnPropertyChanged(nameof(Products));
             }
         }
@@ -45,7 +45,7 @@ namespace UmbrellaBiz.ViewModels
 
         private bool CanExecuteAddProductWeightCommand(object obj)
         {
-            return selectedProduct != null;
+            return _selectedProduct != null;
         }
 
         private void ExecuteAddProductWeightCommand(object obj)
@@ -57,23 +57,23 @@ namespace UmbrellaBiz.ViewModels
 
         private bool CanExecuteDeleteProductCommand(object obj)
         {
-            return selectedProduct != null;
+            return _selectedProduct != null;
         }
 
         private void ExecuteDeleteProductCommand(object obj)
         {
-            ProductModelService.DeleteProduct(selectedProduct.Id);
+            ProductModelService.DeleteProduct(_selectedProduct.Id);
             Products = new ObservableCollection<ProductModel>(ProductModelService.GetAllProducts());
         }
 
         private bool CanExecuteEditProductCommand(object obj)
         {
-            return selectedProduct != null;
+            return _selectedProduct != null;
         }
 
         private void ExecuteEditProductCommand(object obj)
         {
-            EditProductViewModel editProductViewModel = new EditProductViewModel(selectedProduct);
+            EditProductViewModel editProductViewModel = new EditProductViewModel(_selectedProduct);
             var editWindow = new EditProductViewWindow() { DataContext = editProductViewModel };
             editWindow.ShowDialog();
         }
