@@ -36,7 +36,8 @@
                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       HorizontalContentAlignment="Center"
                       Background="Transparent"
-                      BorderBrush="Transparent">
+                      BorderBrush="Transparent"
+                      MouseDoubleClick="LViewProducts_MouseDoubleClick">
 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
