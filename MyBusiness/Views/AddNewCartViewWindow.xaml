@@ -62,27 +62,21 @@
                            Grid.Row="0"
                            Grid.Column="1" Grid.ColumnSpan="2"
                            Style="{StaticResource simpleText}"
-                           HorizontalAlignment="Left">
-                    
-                </TextBlock>
-
+                           HorizontalAlignment="Left"/>
+                
                 <TextBlock Text="{Binding Cart.TotalCartWeight, StringFormat={}Total weight: {0} kg}"
                            Grid.Row="0"
                            Grid.Column="3"
                            Style="{StaticResource simpleText}"
-                           HorizontalAlignment="Left">
-
-                </TextBlock>
-
+                           HorizontalAlignment="Left"/>
+                
                 <TextBlock x:Name="totalCost"
                            Text="{Binding Cart.TotalCartPrice, StringFormat={}Total price: {0} UAH}"
                            Grid.Row="0"
                            Grid.Column="4"
                            Style="{StaticResource simpleText}"
-                           HorizontalAlignment="Left">
-
-                </TextBlock>
-
+                           HorizontalAlignment="Left"/>
+                
                 <Button x:Name="addCartsItem" 
                         Grid.Row="0"
                         Grid.Column="5"
@@ -160,7 +154,7 @@
 
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Header="Cost"
+                        <DataGridTextColumn Header="Price"
                                             IsReadOnly="True"
                                             Binding="{Binding TotalItemPrice}">
 

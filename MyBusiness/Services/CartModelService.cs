@@ -34,11 +34,6 @@ namespace UmbrellaBiz.Services
         {
             using (var context = new ApplicationContext())
             {
-                //context.Carts.Load();
-                //context.Products.Load();
-                //context.CartsItems.Load();
-                //context.Customers.Load();
-                //var allCarts = context.Carts.OrderByDescending(c => c.DateOfCreation).ToList();
                 var allCarts = context.Carts
                                     .Include(c => c.Customer)
                                     .Include(c => c.CartsItems)
@@ -52,15 +47,6 @@ namespace UmbrellaBiz.Services
                     cart.Customer.Avatar.BeginInit();
                     cart.Customer.Avatar.StreamSource = memoryStream;
                     cart.Customer.Avatar.EndInit();
-
-                    //foreach (var item in cart.CartsItems)
-                    //{
-                    //    MemoryStream stream = new MemoryStream(item.Product.ProductImage);
-                    //    item.Product.Image = new BitmapImage();
-                    //    item.Product.Image.BeginInit();
-                    //    item.Product.Image.StreamSource = stream;
-                    //    item.Product.Image.EndInit();
-                    //}
                 }
 
                 return allCarts;
@@ -75,7 +61,23 @@ namespace UmbrellaBiz.Services
                 context.Products.Load();
                 context.CartsItems.Load();
                 context.Customers.Load();
+
                 var specificCart = context.Carts.FirstOrDefault(c => c.Id == id);
+
+                MemoryStream memoryStream = new MemoryStream(specificCart.Customer.AvatarByteCode);
+                specificCart.Customer.Avatar = new BitmapImage();
+                specificCart.Customer.Avatar.BeginInit();
+                specificCart.Customer.Avatar.StreamSource = memoryStream;
+                specificCart.Customer.Avatar.EndInit();
+
+                foreach (var item in specificCart.CartsItems)
+                {
+                    MemoryStream stream = new MemoryStream(item.Product.ProductImage);
+                    item.Product.Image = new BitmapImage();
+                    item.Product.Image.BeginInit();
+                    item.Product.Image.StreamSource = stream;
+                    item.Product.Image.EndInit();
+                }
 
                 return specificCart;
             }
