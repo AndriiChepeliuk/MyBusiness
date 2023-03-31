@@ -66,5 +66,19 @@ namespace UmbrellaBiz.Services
                 return allCarts;
             }
         }
+
+        public static CartModel GetCartById(int id)
+        {
+            using (var context = new ApplicationContext())
+            {
+                context.Carts.Load();
+                context.Products.Load();
+                context.CartsItems.Load();
+                context.Customers.Load();
+                var specificCart = context.Carts.FirstOrDefault(c => c.Id == id);
+
+                return specificCart;
+            }
+        }
     }
 }
