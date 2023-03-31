@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UmbrellaBiz.ViewModels;
 
 namespace UmbrellaBiz.Views
 {
@@ -23,6 +24,15 @@ namespace UmbrellaBiz.Views
         public CreateCartView()
         {
             InitializeComponent();
+        }
+
+        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var dataContext = DataContext as CartsViewModel;
+            if (dataContext != null)
+            {
+                dataContext.GetCartFullInfoCommand.Execute(this);
+            }
         }
     }
 }

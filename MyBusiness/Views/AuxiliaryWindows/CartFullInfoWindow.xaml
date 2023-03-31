@@ -1,0 +1,163 @@
+﻿<Window x:Class="UmbrellaBiz.Views.AuxiliaryWindows.CartFullInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UmbrellaBiz.Views.AuxiliaryWindows"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:viewModel="clr-namespace:UmbrellaBiz.ViewModels.AuxiliaryViewModels"
+        mc:Ignorable="d"
+        Title="CartFullInfoWindow" Height="700" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None">
+
+    <Window.DataContext>
+        <viewModel:CartFullInfoViewModel/>
+    </Window.DataContext>
+
+    <Border CornerRadius="10"
+            BorderThickness="1"
+            BorderBrush="{StaticResource backColor5}"
+            Background="{StaticResource backColor3}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <!--Control bar-->
+                <RowDefinition Height="25"/>
+                <!--Content section-->
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0">
+
+                <Button x:Name="btnClose"
+                        Style="{StaticResource controlButton}"
+                        Tag="{StaticResource color4}"
+                        Click="btnClose_Click">
+                    <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                </Button>
+
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <Rectangle Height="50"
+                               Width="50"
+                               RadiusX="25"
+                               RadiusY="25">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{Binding Cart.Customer.Avatar}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </StackPanel>
+
+                <TextBlock Text="{Binding Cart.Customer.Name}"
+                           Grid.Column="1" Grid.ColumnSpan="2"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left"/>
+                
+                <TextBlock Text="{Binding Cart.TotalCartWeight, StringFormat={}Total weight: {0} kg}"
+                           Grid.Column="3"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left"/>
+                
+                <TextBlock Text="{Binding Cart.TotalCartPrice, StringFormat={}Total price: {0} UAH}"
+                           Grid.Column="4"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left"/>
+
+                <TextBlock Text="{Binding Cart.IsOpen, StringFormat={}Status: {0}}"
+                           Grid.Column="5"
+                           Style="{StaticResource simpleText}"
+                           HorizontalAlignment="Left"/>
+
+            </Grid>
+
+            <DataGrid x:Name="cartItemsDataGrid"
+                      ItemsSource="{Binding Cart.CartsItems}"
+                      Grid.Row="2"
+                      Margin="25 25 10 25"
+                      Style="{DynamicResource cartItemsDataGridStyle}"
+                      CellStyle="{DynamicResource cartItemsDataGridCellStyle}"
+                      RowStyle="{DynamicResource cartItemsDataGridRowStyle}"
+                      ColumnHeaderStyle="{DynamicResource cartItemsDataGridColumnHeaderStyle}">
+
+                <DataGrid.Columns>
+
+                    <DataGridTemplateColumn Header="Picture"
+                                            IsReadOnly="True"
+                                            Width="100">
+
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Grid.Row="0"
+                                               Height="50"
+                                               Width="50"
+                                               RadiusX="25"
+                                               RadiusY="25">
+                                        <Rectangle.Fill>
+                                            <ImageBrush ImageSource="{Binding Product.Image}"/>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Name"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Product.Name}"/>
+
+                    <DataGridTextColumn Header="Price"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Product.Price}"/>
+
+                    <DataGridTextColumn Header="Available Weight"
+                                        IsReadOnly="True"
+                                        Binding="{Binding Product.AvailableWeight}"/>
+
+                    <DataGridTextColumn x:Name="itemWeight"
+                                        Header="Weight"
+                                        IsReadOnly="True"
+                                        Binding="{Binding ProductWeight}"
+                                        Width="80">
+
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn Header="Price"
+                                        IsReadOnly="True"
+                                        Binding="{Binding TotalItemPrice}">
+
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+
+        </Grid>
+        
+    </Border>
+</Window>

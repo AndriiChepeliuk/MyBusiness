@@ -1,31 +1,59 @@
-﻿using UmbrellaBiz.Data;
-using UmbrellaBiz.Models.Product;
-using System.Drawing;
-using System.IO;
-using System.Windows.Media.Imaging;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using UmbrellaBiz.Models.Cart;
+using UmbrellaBiz.Services;
+using UmbrellaBiz.ViewModels.AuxiliaryViewModels;
+using UmbrellaBiz.Views.AuxiliaryWindows;
 
 namespace UmbrellaBiz.ViewModels
 {
     public class CartsViewModel : ViewModelBase
     {
-        //public ProductModel Product { get; set; }
-        //public BitmapImage BitmapImageImage { get; set; }
+        private ObservableCollection<CartModel> _carts;
+        private CartModel _selectedCart;
 
-        //public CreateCartViewModel()
-        //{
-        //    using (ApplicationContext context = new ApplicationContext())
-        //    {
-        //        Product = context.Products.Find(1);
+        public ObservableCollection<CartModel> Carts
+        {
+            get { return _carts; }
+            set
+            {
+                _carts = value;
+                OnPropertyChanged(nameof(Carts));
+            }
+        }
+        public CartModel SelectedCart
+        {
+            get { return _selectedCart; }
+            set
+            {
+                _selectedCart = value;
+                OnPropertyChanged(nameof(SelectedCart));
+            }
+        }
+        public CartModel Cart { get; set; }
 
-        //        MemoryStream memoryStream = new MemoryStream(Product.ProductImage);
-        //        var bitmap = new BitmapImage();
-        //        bitmap.BeginInit();
-        //        bitmap.StreamSource = memoryStream;
-        //        bitmap.CacheOption = BitmapCacheOption.OnLoad;
-        //        bitmap.EndInit();
-        //        bitmap.Freeze();
-        //        BitmapImageImage = bitmap;
-        //    }
-        //}
+        public ICommand GetCartFullInfoCommand { get; }
+
+        public CartsViewModel()
+        {
+            Carts = new ObservableCollection<CartModel>(CartModelService.GetAllCarts());
+            GetCartFullInfoCommand = new ViewModelCommand(ExecuteGetCartFullInfoCommand, CanExecuteGetCartFullInfoCommand);
+        }
+
+        private bool CanExecuteGetCartFullInfoCommand(object obj)
+        {
+            return _selectedCart != null;
+        }
+
+        private void ExecuteGetCartFullInfoCommand(object obj)
+        {
+            Cart = CartModelService.GetCartById(_selectedCart.Id);
+
+            var cartFullInfoViewModel = new CartFullInfoViewModel(Cart);
+            var cartFullInfoWindow = new CartFullInfoWindow() { DataContext = cartFullInfoViewModel };
+
+            cartFullInfoWindow.ShowDialog();
+        }
     }
 }
